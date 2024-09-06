@@ -35,7 +35,7 @@
                 <DatePicker Name="SelectOrderDateCreate" Width="120"/>
 
                 <TextBlock Text="Статус:" Margin="20 0 0 0"/>
-                <ComboBox Name="ChooseOrderStatus" Width="120"/>
+                <ComboBox Name="ChooseOrderStatus" Width="120" SelectedIndex="0"/>
 
                 <CheckBox Content="Использовать поиск" Margin="20 0 0 0" IsChecked="False" Name="CheckSearchOrders"/>
             </StackPanel>

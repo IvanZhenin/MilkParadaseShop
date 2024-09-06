@@ -61,8 +61,7 @@ namespace MilkParadiseShop.View.ClientPages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MilkParadiseShop;V1.0.0.0;component/view/clientpages/clientpreviewcartinorderpag" +
-                    "e.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MilkParadiseShop;component/view/clientpages/clientpreviewcartinorderpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\View\ClientPages\ClientPreviewCartInOrderPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

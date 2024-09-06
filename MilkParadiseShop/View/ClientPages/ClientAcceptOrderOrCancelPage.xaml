@@ -6,13 +6,44 @@
       xmlns:local="clr-namespace:MilkParadiseShop.View.ClientPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
-      Title="ClientAcceptOrderOrCancelPage">
+      Title="ClientAcceptOrderOrCancelPage" IsVisibleChanged="PageIsVisibleChanged">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <RowDefinition/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        
+        <TextBlock Text="Оформление заказа" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+        <DataGrid Name="DataGridFinalShoppingCart" IsReadOnly="True" Grid.Row="1" Margin="5"
+                  AutoGenerateColumns="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding ProdId}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding ProdName}"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Цена за позицию" Binding="{Binding TotalPriceForProduct}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="2" VerticalAlignment="Center">
+            <TextBlock Text="Способ получения: "/>
+            <ComboBox Name="SelectMethodReceiveProds" Width="150" SelectedIndex="0"
+                      SelectionChanged="SelectMethodReceiveProdsSelectionChanged">
+               
+            </ComboBox>
+
+            <StackPanel Orientation="Horizontal" Margin="5 0">
+                <ComboBox Name="SelectMarketPoint" Width="200" SelectedIndex="0"/>
+                <TextBox Name="InputAddress" Width="200"/>
+            </StackPanel>
+
+            <TextBlock Text="Итого к оплате: " Margin="50 0 0 0"/>
+            <TextBox Name="InputTotalOrderAmount" Width="200" Height="30" IsReadOnly="True"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Margin="5">
+            <Button Width="200" Height="50" Content="Подтвердить заказ" Click="ButtonAcceptOrder" Margin="50 0"/>
+            <Button Width="150" Height="50" Content="Вернуться назад" Click="ButtonGoBack" Margin="50 0"/>
+        </StackPanel>
     </Grid>
 </Page>

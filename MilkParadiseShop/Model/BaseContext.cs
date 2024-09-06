@@ -13,6 +13,7 @@ namespace MilkParadiseShop.Model
         public DbSet<Order> Orders { get; set; }
         public DbSet<ProdInOrder> ProdsInOrders { get; set; }
         public DbSet<ClientProduct> ClientProducts { get; set; }
+        public DbSet<MarketPoint> MarketPoints { get; set; }
 
         public BaseContext() => Database.EnsureCreated();
 

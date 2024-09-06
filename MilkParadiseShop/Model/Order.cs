@@ -4,12 +4,26 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
 
 namespace MilkParadiseShop.Model
 {
     [PrimaryKey(nameof(NumId))]
     public class Order
     {
+        public Order(int numId, int clientId, DateTime dateCreate, string address, string orderType,
+            string status, decimal totalPrice, int? workerId = null) 
+        { 
+            NumId = numId;
+            ClientId = clientId;
+            DateCreate = dateCreate;
+            Address = address;
+            OrderType = orderType;
+            Status = status;
+            TotalPrice = totalPrice;
+            if (workerId != null)
+                WorkerId = workerId;
+        }
         public int NumId { get; set; }
 
         [ForeignKey("Worker")]
@@ -35,7 +49,13 @@ namespace MilkParadiseShop.Model
                 {
                     var worker = baseContext.Workers.Where(p => p.NumId == WorkerId).FirstOrDefault();
                     if (worker != null)
+                    {
                         result = worker.SurName + " " + worker.Name;
+                    }
+                    else
+                    {
+                        result = " - ";
+                    }
                 }
                 return result;
             }

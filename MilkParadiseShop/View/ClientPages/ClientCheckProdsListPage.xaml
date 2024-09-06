@@ -25,7 +25,7 @@
                     <TextBox x:Name="InputProductName" Width="150"/>
 
                     <TextBlock Text="Категория: " Margin="20 0 0 0"/>
-                    <ComboBox Name="ChooseProductCategory" Width="150"/>
+                    <ComboBox Name="ChooseProductCategory" Width="150" SelectedIndex="0"/>
 
                     <CheckBox Margin="5" Content="Использовать поиск" Name="CheckSearchProducts" IsChecked="False"/>
                 </StackPanel>

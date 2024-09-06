@@ -31,7 +31,6 @@ namespace MilkParadiseShop.View.ClientPages
             InitializeComponent();
             TextDataOfClientAccount.Text += $"клиент {ClientLogin.SurName} {ClientLogin.Name}, имя записи - {ClientLogin.Login}";
             ChooseOrderStatus.ItemsSource = NamesCollector.GetSearchList(NamesCollector.WorkingOrderStatusList, true);
-            ChooseOrderStatus.SelectedIndex = 0;
             TimerActivate();
         }
         private void ButtonCheckProductList(object sender, RoutedEventArgs e)

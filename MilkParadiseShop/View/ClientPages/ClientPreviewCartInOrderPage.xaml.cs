@@ -45,7 +45,6 @@ namespace MilkParadiseShop.View.ClientPages
             clientChooseProdQuantityWindow.ShowDialog();
             CheckProductsPositionInCart();
         }
-
         private void ButtonClearCurrentShoppingCart(object sender, RoutedEventArgs e)
         {
             ClientViewModel.ClearClientShoppingCart();

@@ -98,3 +98,4 @@ D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientPages\ClientPreviewCartInOrderPage.g.cs
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientPages\ClientAcceptOrderOrCancelPage.baml
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientPages\ClientPreviewCartInOrderPage.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\MilkParadiseShop.sourcelink.json

@@ -1,5 +1,9 @@
-﻿using System;
+﻿using MilkParadiseShop.Helpers;
+using MilkParadiseShop.Model;
+using MilkParadiseShop.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +27,44 @@ namespace MilkParadiseShop.View.ClientPages
         public ClientAcceptOrderOrCancelPage()
         {
             InitializeComponent();
+            SelectMethodReceiveProds.ItemsSource = NamesCollector.WorkingOrderTypeList;
+            SelectMarketPoint.ItemsSource = ClientViewModel.GetMarketPointsNames();
+        }
+
+        private void UpdateCartList()
+        {
+            DataGridFinalShoppingCart.ItemsSource = ClientViewModel.UpdateDataGridClientShoppingCart();
+            InputTotalOrderAmount.Text = ClientViewModel.GetTotalPrice().ToString();
+        }
+        private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateCartList();
+        }
+        private void ButtonAcceptOrder(object sender, RoutedEventArgs e)
+        {
+            if (ClientViewModel.AcceptNewClientOrder(ClientLogin.NumId, SelectMarketPoint.Visibility == Visibility.Visible ?
+                SelectMarketPoint.SelectedItem.ToString() : InputAddress.Text,
+                SelectMethodReceiveProds.SelectedItem.ToString(), ClientViewModel.GetTotalPrice()))
+                UIManager.ClientGoStartPageAfterOrder();
+        }
+        
+        private void ButtonGoBack(object sender, RoutedEventArgs e)
+        {
+            UIManager.ClientFrame.GoBack();
+        }
+
+        private void SelectMethodReceiveProdsSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SelectMethodReceiveProds.SelectedIndex == 0) 
+            {
+                InputAddress.Visibility = Visibility.Collapsed;
+                SelectMarketPoint.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                InputAddress.Visibility = Visibility.Visible;
+                SelectMarketPoint.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

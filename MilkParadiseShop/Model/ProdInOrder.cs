@@ -10,6 +10,13 @@ namespace MilkParadiseShop.Model
     [PrimaryKey(nameof(OrderId), nameof(ProdId))]
     public class ProdInOrder
     {
+        public ProdInOrder(int orderId, int prodId, int quantity) 
+        { 
+            OrderId = orderId;
+            ProdId = prodId;
+            Quantity = quantity;
+        }
+
         [ForeignKey("Order")]
         public int OrderId { get; set; }
 

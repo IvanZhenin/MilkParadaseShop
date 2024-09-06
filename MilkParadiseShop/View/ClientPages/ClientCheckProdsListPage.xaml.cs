@@ -30,7 +30,6 @@ namespace MilkParadiseShop.View.ClientPages
         {
             InitializeComponent();
             ChooseProductCategory.ItemsSource = NamesCollector.GetSearchList(NamesCollector.CategoriesNames(), false);
-            ChooseProductCategory.SelectedIndex = 0;
             TimerActivate();
         }
 

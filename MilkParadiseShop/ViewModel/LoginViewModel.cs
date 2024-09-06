@@ -135,7 +135,7 @@ namespace MilkParadiseShop.ViewModel
 
                 Client newClient = new Client
                 {
-                    NumId = UniqueId.GetNewNumId(context.Clients.Select(p => p.NumId).ToList()),
+                    NumId = UniqueNewId.GetNewNumId(context.Clients.Select(p => p.NumId).ToList()),
                     Name = name,
                     SurName = surname,
                     Patronymic = patronymic,

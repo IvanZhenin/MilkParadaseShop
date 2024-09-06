@@ -17,7 +17,11 @@ namespace MilkParadiseShop.Helpers
 
         public static Window ClientTargetWindow { get; set; }
         public static Frame ClientFrame { get; set; }
-
+        public static void ClientGoStartPageAfterOrder()
+        {
+            for (int i = 0; i< 3; i++)
+                ClientFrame.GoBack();
+        }
         public static Frame WorkerFrame { get; set; }
     }
 }

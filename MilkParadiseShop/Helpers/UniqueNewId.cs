@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MilkParadiseShop.Helpers
 {
-    public static class UniqueId
+    public static class UniqueNewId
     {
         public static int GetNewNumId(List<int> collection)
         {
