@@ -10,7 +10,10 @@
     <Compile Update="View\AdminWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\ClientChooseProdQuantity.xaml.cs">
+    <Compile Update="View\ClientCheckOrderCartWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ClientChooseProdQuantityWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ClientPages\ClientAcceptOrderOrCancelPage.xaml.cs">
@@ -45,7 +48,10 @@
     <Page Update="View\AdminWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\ClientChooseProdQuantity.xaml">
+    <Page Update="View\ClientCheckOrderCartWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ClientChooseProdQuantityWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ClientPages\ClientAcceptOrderOrCancelPage.xaml">

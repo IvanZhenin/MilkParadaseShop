@@ -25,5 +25,17 @@ namespace MilkParadiseShop.Model
         public int Quantity { get; set; } 
         public Order Order { get; set; }
         public Product Product { get; set; }
+        public string ProdName
+        {
+            get
+            {
+                string name = string.Empty;
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    name = baseContext.Products.Where(p => p.NumId == ProdId).First().Name;
+                }
+                return name;
+            }
+        }
     }
 }

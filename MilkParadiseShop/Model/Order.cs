@@ -60,6 +60,20 @@ namespace MilkParadiseShop.Model
                 return result;
             }
         }
+        public int TotalProdQuantity
+        {
+            get
+            {
+                int result = 0;
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    var prodList = baseContext.ProdsInOrders.Where(p => p.OrderId == NumId).ToList();
+                    foreach (var pos in prodList)
+                        result += pos.Quantity;
+                }
+                return result;
+            }
+        }
         public ICollection<ProdInOrder> ProdsInOrders { get; set; }
     }
 }

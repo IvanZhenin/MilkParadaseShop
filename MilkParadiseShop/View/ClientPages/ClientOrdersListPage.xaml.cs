@@ -38,6 +38,14 @@ namespace MilkParadiseShop.View.ClientPages
             _timerForOrders.Stop();
             UIManager.ClientFrame.Navigate(new ClientCheckProdsListPage());
         }
+        private void ButtonCheckOrderCart(object sender, RoutedEventArgs e)
+        {
+            _timerForOrders.Stop();
+            ClientCheckOrderCartWindow clientCheckOrderCartWindow 
+                = new ClientCheckOrderCartWindow((sender as Button).DataContext as Order);
+            clientCheckOrderCartWindow.ShowDialog();
+            _timerForOrders.Start();
+        }
         private void ButtonGoLogout(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();

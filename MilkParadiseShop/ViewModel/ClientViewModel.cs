@@ -270,5 +270,18 @@ namespace MilkParadiseShop.ViewModel
 
             return false;
         }
+
+        public static List<ProdInOrder> GetProductListInOrder(Order targerOrder)
+        {
+            List<ProdInOrder> newList = new List<ProdInOrder>();
+            using (BaseContext baseContext = new BaseContext())
+            {
+                foreach (ProdInOrder pos in baseContext.ProdsInOrders.Where(p => p.OrderId == targerOrder.NumId))
+                {
+                    newList.Add(pos);
+                }
+            }
+            return newList;
+        }
     }
 }

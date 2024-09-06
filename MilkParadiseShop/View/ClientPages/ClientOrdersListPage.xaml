@@ -49,7 +49,15 @@
                     <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"/>
                     <DataGridTextColumn Header="Тип заказа" Binding="{Binding OrderType}"/>
                     <DataGridTextColumn Header="Статус" Binding="{Binding Status}"/>
+                    <DataGridTextColumn Header="Количество товаров" Binding="{Binding TotalProdQuantity}"/>
                     <DataGridTextColumn Header="Итоговая стоимость" Binding="{Binding TotalPrice}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Состав заказа" Click="ButtonCheckOrderCart"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
