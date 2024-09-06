@@ -109,7 +109,7 @@ namespace MilkParadiseShop.ViewModel
             {
                 try
                 {
-                    if (targetProdPos == null) 
+                    if (targetProdPos == null)
                     {
                         ClientProduct newPos = new ClientProduct(ClientLogin.NumId, product.NumId, Convert.ToInt32(quantity));
                         ClientProduct checkCurrentPos = baseContext.ClientProducts
@@ -199,10 +199,76 @@ namespace MilkParadiseShop.ViewModel
         }
         public static List<ClientProduct> UpdateDataGridClientShoppingCart()
         {
-            using (BaseContext context = new BaseContext())
+            using (BaseContext baseContext = new BaseContext())
             {
-                return context.ClientProducts.ToList();
+                return baseContext.ClientProducts.ToList();
             }
+        }
+
+        public static decimal GetTotalPrice()
+        {
+            decimal price = 0;
+            using (BaseContext baseContext = new BaseContext())
+            {
+                foreach (ClientProduct pos in baseContext.ClientProducts.Where(p => p.ClientId == ClientLogin.NumId))
+                {
+                    price += pos.TotalPriceForProduct;
+                }
+            }
+
+            return price * (1 - (decimal)ClientLogin.Discount / 100);
+        }
+        public static List<string> GetMarketPointsNames()
+        {
+            List<string> names = new List<string>();
+            using (BaseContext baseContext = new BaseContext())
+            {
+                foreach (MarketPoint address in baseContext.MarketPoints)
+                {
+                    names.Add(address.Address);
+                }
+            }
+            return names;
+        }
+        public static bool AcceptNewClientOrder(int clientId, string address, string orderType, decimal totalPrice)
+        {
+            if (address == null || address == string.Empty)
+            {
+                MessageBox.Show("Вы неправильно указали адрес!", "Ошибка");
+                return false;
+            }
+
+            using (BaseContext baseContext = new BaseContext())
+            {
+                if (MessageBox.Show($"Вы подтверждаете заказ на сумму {GetTotalPrice().ToString()}?",
+                   "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        Order newOrder = new Order(
+                            UniqueNewId.GetNewNumId(baseContext.Orders.Select(p => p.NumId).ToList()),
+                            clientId, DateTime.Today, address, orderType, NamesCollector.WorkingOrderStatusList[0], totalPrice)
+                        {
+                            ArchStatus = false,
+                        };
+                        baseContext.Orders.Add(newOrder);
+                        foreach (var clientPos in baseContext.ClientProducts)
+                        {
+                            baseContext.ProdsInOrders.Add(new ProdInOrder(newOrder.NumId, clientPos.ProdId, clientPos.Quantity));
+                            baseContext.ClientProducts.Remove(clientPos);
+                        }
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Заказ был успешно создан!", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
