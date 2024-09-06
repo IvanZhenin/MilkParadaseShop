@@ -1,0 +1,20 @@
+﻿MilkParadiseShop
+
+
+winexe
+C#
+.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\
+MilkParadiseShop
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\App.xaml
+12-870571121
+
+361142276815
+2412031528559
+View\AdminWindow.xaml;View\ClientChooseProdQuantity.xaml;View\ClientPages\ClientAcceptOrderOrCancelPage.xaml;View\ClientPages\ClientCheckProdsListPage.xaml;View\ClientPages\ClientOrdersListPage.xaml;View\ClientPages\ClientPreviewCartInOrderPage.xaml;View\ClientWindow.xaml;View\CourierWindow.xaml;View\LoginPages\AuthorizationPage.xaml;View\LoginPages\RegistrationPage.xaml;View\LoginWindow.xaml;View\SellerWindow.xaml;
+
+False
+

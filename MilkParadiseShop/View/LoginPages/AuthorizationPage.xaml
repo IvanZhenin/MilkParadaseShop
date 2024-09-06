@@ -1,0 +1,36 @@
+﻿<Page x:Class="MilkParadiseShop.View.LoginPages.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkParadiseShop.View.LoginPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="564" d:DesignWidth="430"
+      Title="AuthorizationDataPage">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Авторизация"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Логин"/>
+                <TextBox Width="100" Name="LoginField"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Пароль"/>
+                <PasswordBox Width="100" Name="PasswordField"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock Text="Я:"/>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Name="ClientButtonCheck" Content="Клиент" GroupName="UserChange" IsChecked="True"/>
+                <RadioButton Name="WorkerButtonCheck" Content="Сотрудник" GroupName="UserChange"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Войти" Click="ButtonEnterInAccount"/>
+                <Button Content="Регистрация" Click="ButtonGoCreateNewAccount"/>
+            </StackPanel>
+            <Button Content="Войти как гость" Click="ButtonEnterAsGuest"/>
+        </StackPanel>
+    </Grid>
+</Page>

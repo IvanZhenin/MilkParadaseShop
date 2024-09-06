@@ -1,0 +1,14 @@
+﻿<Window x:Class="MilkParadiseShop.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkParadiseShop"
+        mc:Ignorable="d"
+        Title="Авторизация" MinHeight="600" MinWidth="450" MaxHeight="600" 
+        MaxWidth="450" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <Frame Grid.Row="0" Name="LoginDataPanelFrame" Style="{StaticResource FrameAuto}"/>
+    </Grid>
+</Window>

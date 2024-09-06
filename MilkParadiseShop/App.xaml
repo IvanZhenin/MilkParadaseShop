@@ -1,0 +1,16 @@
+﻿<Application x:Class="MilkParadiseShop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MilkParadiseShop"
+             StartupUri="/View/LoginWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Frame" x:Key="FrameAuto">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="NavigationUIVisibility" Value="Hidden"/>
+        </Style>
+        <Style TargetType="Frame" x:Key="FrameOrder">
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="NavigationUIVisibility" Value="Hidden"/>
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,62 @@
+﻿<Page x:Class="MilkParadiseShop.View.LoginPages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkParadiseShop.View.LoginPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="564" d:DesignWidth="430"
+      Title="RegistrationDataPage">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Регистрация"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Имя"/>
+                <TextBox Width="100" Name="NameField"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Фамилия"/>
+                <TextBox Width="100" Name="SurnameField"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Пол"/>
+                <RadioButton Name="MaleGenderCheck" Content="Мужчина" GroupName="GenderChange" IsChecked="True"/>
+                <RadioButton Name="FemaleGenderCheck" Content="Женщина" GroupName="GenderChange"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Отчество(не обязательно)"/>
+                <TextBox Width="100" Name="PatronymicField"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Номер телефона"/>
+                <TextBox Width="100" Name="PhoneNumberField"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Эл. почта"/>
+                <TextBox Width="100" Name="EmailField"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Логин"/>
+                <TextBox Width="100" Name="LoginField"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Пароль"/>
+                <TextBox Width="100" Name="PasswordField"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="150" Text="Повторите пароль"/>
+                <TextBox Width="100" Name="RepeatPasswordField"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Content="Зарегистрироваться" Click="ButtonAddNewAccount"/>
+            <Button Content="Назад" Click="ButtonGoBack"/>
+        </StackPanel>
+    </Grid>
+</Page>
