@@ -29,6 +29,7 @@ namespace MilkParadiseShop.View.ClientPages
             InitializeComponent();
             SelectMethodReceiveProds.ItemsSource = NamesCollector.WorkingOrderTypeList;
             SelectMarketPoint.ItemsSource = ClientViewModel.GetMarketPointsNames();
+            TextClientDiscountPercent.Text += $"{ClientLogin.Discount}%";
         }
 
         private void UpdateCartList()

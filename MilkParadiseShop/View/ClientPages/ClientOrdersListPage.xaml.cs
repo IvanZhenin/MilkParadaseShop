@@ -33,6 +33,11 @@ namespace MilkParadiseShop.View.ClientPages
             ChooseOrderStatus.ItemsSource = NamesCollector.GetSearchList(NamesCollector.WorkingOrderStatusList, true);
             TimerActivate();
         }
+        private void ButtonGoEditAccountDataClient(object sender, RoutedEventArgs e)
+        {
+            _timerForOrders.Stop();
+            UIManager.ClientFrame.Navigate(new ClientEditHisProfilePage());
+        }
         private void ButtonCheckProductList(object sender, RoutedEventArgs e)
         {
             _timerForOrders.Stop();

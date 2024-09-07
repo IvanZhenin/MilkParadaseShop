@@ -101,3 +101,5 @@ D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientChooseProdQuantityWindow.g.cs
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientCheckOrderCartWindow.baml
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientChooseProdQuantityWindow.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientPages\ClientEditHisProfilePage.g.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\ClientPages\ClientEditHisProfilePage.baml

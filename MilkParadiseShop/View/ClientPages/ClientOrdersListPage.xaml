@@ -20,6 +20,8 @@
 
         <StackPanel Grid.Column="1" Margin="5" VerticalAlignment="Center">
             <TextBlock Name="TextDataOfClientAccount" Text="Данные учетной записи:"/>
+            <Button Click="ButtonGoEditAccountDataClient" Content="Изменить данные" 
+                    Width="110" HorizontalAlignment="Left" Margin="5"/>
             <TextBlock Text="Список ваших заказов"/>
         </StackPanel>
        

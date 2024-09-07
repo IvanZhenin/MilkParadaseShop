@@ -97,13 +97,14 @@ namespace MilkParadiseShop.ViewModel
         public static void Registration(string name, string surname, string gender, string phoneNumber, string email,
             string login, string password, string repeatPassword, string? patronymic = null)
         {
+            if (ValueValidator.CheckNullOrEmptyParams(name, surname, phoneNumber, email, login, password, repeatPassword))
+            {
+                MessageBox.Show("Необходимо заполнить все обязательные поля!", "Ошибка");
+                return;
+            }
+
             using (BaseContext context = new BaseContext())
             {
-                if (ValueValidator.CheckNullOrEmptyParams(name, surname, phoneNumber, email, login, password, repeatPassword))
-                {
-                    MessageBox.Show("Необходимо заполнить все обязательные поля!", "Ошибка");
-                    return;
-                }
 
                 StringBuilder errors = new StringBuilder();
 
@@ -116,7 +117,7 @@ namespace MilkParadiseShop.ViewModel
                 if (!phoneNumber.All(Char.IsDigit))
                 {
                     errors.AppendLine("Номер телефона должен содержать только цифры!");
-                }    
+                }
 
                 if (InputValidator.CheckRussianLetters(login) || InputValidator.CheckRussianLetters(password))
                 {
@@ -158,13 +159,71 @@ namespace MilkParadiseShop.ViewModel
                 {
                     baseContext.Clients.Add(client);
                     baseContext.SaveChanges();
-                    MessageBox.Show("Регистрация прошла успешно!","Внимание");
+                    MessageBox.Show("Регистрация прошла успешно!", "Внимание");
                     UIManager.LoginDataPanelFrame.GoBack();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Критическая ошибка");
+            }
+        }
+
+        public static void EditClientAccountData(string name, string surName, string phoneNumber,
+            string email, string newPassword, string repeatNewPassword, bool acceptNewPassword, string? patronymic = null)
+        {
+            if (ValueValidator.CheckNullOrEmptyParams(name, surName, phoneNumber, email))
+            {
+                MessageBox.Show("Поля: имя, фамилия, номер телефона и эл. почта обязательны к заполнению!", "Ошибка");
+                return;
+            }
+
+            if (MessageBox.Show("Вы точно хотите внести данные изменения в свой аккаунт?",
+                   "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    StringBuilder errors = new StringBuilder();
+
+                    if (!phoneNumber.All(Char.IsDigit))
+                    {
+                        errors.AppendLine("Номер телефона должен содержать только цифры!");
+                    }
+
+                    if (acceptNewPassword && (String.IsNullOrEmpty(newPassword) || String.IsNullOrEmpty(repeatNewPassword)))
+                    {
+                        errors.AppendLine("Поля нового пароля не могут быть пустыми!");
+                    }
+                    else if (acceptNewPassword && newPassword != repeatNewPassword)
+                    {
+                        errors.AppendLine("Новые пароли не совпадают!");
+                    }
+
+                    if (errors.Length > 0)
+                    {
+                        MessageBox.Show(errors.ToString(), "Ошибка");
+                        return;
+                    }
+
+                    try
+                    {
+                        Client changedClient = baseContext.Clients.Where(p => p.NumId == ClientLogin.NumId).First();
+                        changedClient.Name = name;
+                        changedClient.SurName = surName;
+                        changedClient.Patronymic = patronymic;
+                        changedClient.PhoneNumber = phoneNumber;
+                        changedClient.Email = email;
+                        if (acceptNewPassword)
+                            changedClient.Password = newPassword;
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Изменения успешно сохранены!", "Внимание");
+                        UIManager.ClientFrame.GoBack();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
             }
         }
     }

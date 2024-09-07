@@ -37,7 +37,10 @@
                 <TextBox Name="InputAddress" Width="200"/>
             </StackPanel>
 
-            <TextBlock Text="Итого к оплате: " Margin="50 0 0 0"/>
+            <StackPanel Orientation="Vertical" Margin="50 0 0 0">
+                <TextBlock Text="Итого к оплате: "/>
+                <TextBlock Name="TextClientDiscountPercent" Text="Скидка: "/>
+            </StackPanel>
             <TextBox Name="InputTotalOrderAmount" Width="200" Height="30" IsReadOnly="True"/>
         </StackPanel>
 
