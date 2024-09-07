@@ -13,7 +13,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace MilkParadiseShop.ViewModel
 {
-    public static class LoginViewModel
+    public class LoginViewModel
     {
         public static void Authorization()
         {

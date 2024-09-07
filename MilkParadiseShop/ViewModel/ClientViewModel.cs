@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows;
 using System.Windows.Controls;
+using MilkParadiseShop.View;
 
 namespace MilkParadiseShop.ViewModel
 {
     public class ClientViewModel
     {
-        public static List<Order> UpdateDataGridOrdersWithSearch(string orderId, DateTime? dateCreate, string selectedStatus)
+        public static List<Order> UpdateDataGridClientOrdersWithSearch(string orderId, DateTime? dateCreate, string selectedStatus)
         {
             int orderNumId = (orderId.All(c => char.IsDigit(c)) && orderId != null
                 && orderId != string.Empty) ? Convert.ToInt32(orderId) : 0;
@@ -32,14 +33,14 @@ namespace MilkParadiseShop.ViewModel
                 return newList;
             }
         }
-        public static List<Order> UpdateDataGridOrdersWithoutSearch()
+        public static List<Order> UpdateDataGridClientOrdersWithoutSearch()
         {
             using (BaseContext baseContext = new BaseContext())
             {
                 return baseContext.Orders.Where(p => p.ClientId == ClientLogin.NumId).ToList();
             }
         }
-        public static void CancelCurrentOrder(Order order)
+        public static void CancelCurrentClientOrder(Order order)
         {
             if (order == null)
                 return;
@@ -69,7 +70,6 @@ namespace MilkParadiseShop.ViewModel
                 }
             }
         }
-
         public static void ClearClientShoppingCart()
         {
             using (BaseContext baseContext = new BaseContext())
@@ -97,7 +97,7 @@ namespace MilkParadiseShop.ViewModel
                 }
             }
         }
-        public static bool AddNewPositionInShoppingCart(string quantity, Product product = null, ClientProduct targetProdPos = null)
+        public static bool AddNewPositionInClientShoppingCart(string quantity, Product product = null, ClientProduct targetProdPos = null)
         {
             if (quantity == null || quantity == string.Empty || !quantity.All(p => Char.IsDigit(p)) || Convert.ToInt32(quantity) <= 0)
             {
@@ -141,43 +141,7 @@ namespace MilkParadiseShop.ViewModel
 
             return true;
         }
-        public static List<Product> UpdateDataGridpProductsWithSearch(string nameProd,
-            string categoryName, string minPrice, string maxPrice)
-        {
-
-            using (BaseContext context = new BaseContext())
-            {
-                var newList = context.Products.ToList();
-                if (nameProd != null && nameProd != string.Empty)
-                    newList = newList.Where(p => p.Name.ToLower().Contains(nameProd.ToLower())).ToList();
-                if (categoryName != null && categoryName != string.Empty)
-                    newList = newList.Where(p => p.CategoryName == categoryName).ToList();
-                if (Decimal.TryParse(minPrice, out decimal checkMinPrice))
-                {
-                    if (checkMinPrice > 0)
-                        newList = newList.Where(p => p.Price >= checkMinPrice).ToList();
-                }
-
-                if (Decimal.TryParse(maxPrice, out decimal checkMaxPrice))
-                {
-                    if (checkMaxPrice > 0)
-                    {
-                        newList = newList.Where(p => p.Price <= checkMaxPrice).ToList();
-                    }
-                }
-
-                return newList;
-            }
-        }
-
-        public static List<Product> UpdateDataGridProductsWithoutSearch()
-        {
-            using (BaseContext context = new BaseContext())
-            {
-                return context.Products.ToList();
-            }
-        }
-        public static void DeletePositionFromCart(ClientProduct prodPosition)
+        public static void DeletePositionFromClientShoppingCart(ClientProduct prodPosition)
         {
             using (BaseContext baseContext = new BaseContext())
             {
@@ -204,32 +168,6 @@ namespace MilkParadiseShop.ViewModel
                 return baseContext.ClientProducts.ToList();
             }
         }
-
-        public static decimal GetTotalPrice()
-        {
-            decimal price = 0;
-            using (BaseContext baseContext = new BaseContext())
-            {
-                foreach (ClientProduct pos in baseContext.ClientProducts.Where(p => p.ClientId == ClientLogin.NumId))
-                {
-                    price += pos.TotalPriceForProduct;
-                }
-            }
-
-            return price * (1 - (decimal)ClientLogin.Discount / 100);
-        }
-        public static List<string> GetMarketPointsNames()
-        {
-            List<string> names = new List<string>();
-            using (BaseContext baseContext = new BaseContext())
-            {
-                foreach (MarketPoint address in baseContext.MarketPoints)
-                {
-                    names.Add(address.Address);
-                }
-            }
-            return names;
-        }
         public static bool AcceptNewClientOrder(int clientId, string address, string orderType, decimal totalPrice)
         {
             if (address == null || address == string.Empty)
@@ -240,7 +178,7 @@ namespace MilkParadiseShop.ViewModel
 
             using (BaseContext baseContext = new BaseContext())
             {
-                if (MessageBox.Show($"Вы подтверждаете заказ на сумму {GetTotalPrice().ToString()}?",
+                if (MessageBox.Show($"Вы подтверждаете заказ на сумму {BaseViewModel.GetTotalPrice()}?",
                    "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     try
@@ -269,19 +207,6 @@ namespace MilkParadiseShop.ViewModel
             }
 
             return false;
-        }
-
-        public static List<ProdInOrder> GetProductListInOrder(Order targerOrder)
-        {
-            List<ProdInOrder> newList = new List<ProdInOrder>();
-            using (BaseContext baseContext = new BaseContext())
-            {
-                foreach (ProdInOrder pos in baseContext.ProdsInOrders.Where(p => p.OrderId == targerOrder.NumId))
-                {
-                    newList.Add(pos);
-                }
-            }
-            return newList;
         }
     }
 }

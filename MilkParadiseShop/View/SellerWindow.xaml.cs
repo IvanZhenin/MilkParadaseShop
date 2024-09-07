@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MilkParadiseShop.Helpers;
+using MilkParadiseShop.View.ClientPages;
+using MilkParadiseShop.View.SellerPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,9 @@ namespace MilkParadiseShop.View
         public SellerWindow()
         {
             InitializeComponent();
+            UIManager.WorkerSellerTargetWindow = this;
+            UIManager.WorkerSellerFrame = SellerDataPanelFrame;
+            UIManager.WorkerSellerFrame.Navigate(new SellerCheckOrdersPage());
         }
     }
 }

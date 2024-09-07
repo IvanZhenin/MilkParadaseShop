@@ -46,9 +46,7 @@ namespace MilkParadiseShop.View.ClientPages
         private void ButtonCheckOrderCart(object sender, RoutedEventArgs e)
         {
             _timerForOrders.Stop();
-            ClientCheckOrderCartWindow clientCheckOrderCartWindow 
-                = new ClientCheckOrderCartWindow((sender as Button).DataContext as Order);
-            clientCheckOrderCartWindow.ShowDialog();
+            BaseViewModel.UserCheckShoppingCartInOrder((sender as Button).DataContext as Order);
             _timerForOrders.Start();
         }
         private void ButtonGoLogout(object sender, RoutedEventArgs e)
@@ -78,14 +76,14 @@ namespace MilkParadiseShop.View.ClientPages
         {
             if (CheckSearchOrders.IsChecked == true)
             {
-                DataGridClientOrders.ItemsSource = ClientViewModel.UpdateDataGridOrdersWithSearch(
+                DataGridClientOrders.ItemsSource = ClientViewModel.UpdateDataGridClientOrdersWithSearch(
                     InputOrderId.Text,
                     SelectOrderDateCreate.SelectedDate ?? null,
                     ChooseOrderStatus.SelectedItem.ToString());
             }
             else
             {
-                DataGridClientOrders.ItemsSource = ClientViewModel.UpdateDataGridOrdersWithoutSearch();
+                DataGridClientOrders.ItemsSource = ClientViewModel.UpdateDataGridClientOrdersWithoutSearch();
             }
             TextOrdersCount.Text = $"Количество заказов: {DataGridClientOrders.Items.Count}";
         }
@@ -93,7 +91,7 @@ namespace MilkParadiseShop.View.ClientPages
         private void ButtonCancelOrder(object sender, RoutedEventArgs e)
         {
             _timerForOrders.Stop();
-            ClientViewModel.CancelCurrentOrder((sender as Button).DataContext as Order);
+            ClientViewModel.CancelCurrentClientOrder((sender as Button).DataContext as Order);
             _timerForOrders.Start();
         }
     }

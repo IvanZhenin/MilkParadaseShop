@@ -10,7 +10,7 @@
     <Compile Update="View\AdminWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\ClientCheckOrderCartWindow.xaml.cs">
+    <Compile Update="View\UserCheckOrderCartWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ClientChooseProdQuantityWindow.xaml.cs">
@@ -43,6 +43,9 @@
     <Compile Update="View\CourierWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SellerPages\SellerCheckOrdersPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SellerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -51,7 +54,7 @@
     <Page Update="View\AdminWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\ClientCheckOrderCartWindow.xaml">
+    <Page Update="View\UserCheckOrderCartWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ClientChooseProdQuantityWindow.xaml">
@@ -85,6 +88,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CourierWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SellerPages\SellerCheckOrdersPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SellerWindow.xaml">

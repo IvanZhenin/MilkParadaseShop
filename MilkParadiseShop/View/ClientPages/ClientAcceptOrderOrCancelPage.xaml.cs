@@ -28,14 +28,14 @@ namespace MilkParadiseShop.View.ClientPages
         {
             InitializeComponent();
             SelectMethodReceiveProds.ItemsSource = NamesCollector.WorkingOrderTypeList;
-            SelectMarketPoint.ItemsSource = ClientViewModel.GetMarketPointsNames();
+            SelectMarketPoint.ItemsSource = BaseViewModel.GetMarketPointsNames();
             TextClientDiscountPercent.Text += $"{ClientLogin.Discount}%";
         }
 
         private void UpdateCartList()
         {
             DataGridFinalShoppingCart.ItemsSource = ClientViewModel.UpdateDataGridClientShoppingCart();
-            InputTotalOrderAmount.Text = ClientViewModel.GetTotalPrice().ToString();
+            InputTotalOrderAmount.Text = BaseViewModel.GetTotalPrice().ToString();
         }
         private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -45,7 +45,7 @@ namespace MilkParadiseShop.View.ClientPages
         {
             if (ClientViewModel.AcceptNewClientOrder(ClientLogin.NumId, SelectMarketPoint.Visibility == Visibility.Visible ?
                 SelectMarketPoint.SelectedItem.ToString() : InputAddress.Text,
-                SelectMethodReceiveProds.SelectedItem.ToString(), ClientViewModel.GetTotalPrice()))
+                SelectMethodReceiveProds.SelectedItem.ToString(), BaseViewModel.GetTotalPrice()))
                 UIManager.ClientGoStartPageAfterOrder();
         }
         

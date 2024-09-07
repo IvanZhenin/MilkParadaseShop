@@ -31,7 +31,7 @@ namespace MilkParadiseShop.View.ClientPages
 
         private void ButtonDeletePositionFromCart(object sender, RoutedEventArgs e)
         {
-            ClientViewModel.DeletePositionFromCart((sender as Button).DataContext as ClientProduct);
+            ClientViewModel.DeletePositionFromClientShoppingCart((sender as Button).DataContext as ClientProduct);
             CheckProductsPositionInCart();
         }
         private void ButtonGoToChooseInOrder(object sender, RoutedEventArgs e)

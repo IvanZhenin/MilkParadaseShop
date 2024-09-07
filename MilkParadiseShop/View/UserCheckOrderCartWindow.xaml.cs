@@ -19,13 +19,13 @@ namespace MilkParadiseShop.View
     /// <summary>
     /// Логика взаимодействия для ClientCheckOrderCartWindow.xaml
     /// </summary>
-    public partial class ClientCheckOrderCartWindow : Window
+    public partial class UserCheckOrderCartWindow : Window
     {
-        public ClientCheckOrderCartWindow(Order currentOrder)
+        public UserCheckOrderCartWindow(Order currentOrder)
         {
             InitializeComponent();
             Title += $" [{currentOrder.NumId}]";
-            DataGridProductsInOrder.ItemsSource = ClientViewModel.GetProductListInOrder(currentOrder);
+            DataGridProductsInOrder.ItemsSource = BaseViewModel.GetProductListInOrder(currentOrder);
         }
     }
 }

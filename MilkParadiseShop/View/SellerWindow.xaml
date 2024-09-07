@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkParadiseShop.View"
         mc:Ignorable="d"
-        Title="SellerWindow" Height="450" Width="800">
+        Title="Окно продавца" MinHeight="650" MinWidth="1100">
     <Grid>
-        
+        <Frame Name="SellerDataPanelFrame" Style="{StaticResource FrameOrder}"/>
     </Grid>
 </Window>

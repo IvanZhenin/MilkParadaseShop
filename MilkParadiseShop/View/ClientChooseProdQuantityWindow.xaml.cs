@@ -44,12 +44,12 @@ namespace MilkParadiseShop.View
         {
             if (_currentPos.ProdId <= 0)
             {
-                if (ClientViewModel.AddNewPositionInShoppingCart(InputProductQuantity.Text, _currentProd, null))
+                if (ClientViewModel.AddNewPositionInClientShoppingCart(InputProductQuantity.Text, _currentProd, null))
                     this.Close();
             }
             else
             {
-                if (ClientViewModel.AddNewPositionInShoppingCart(InputProductQuantity.Text, null, _currentPos))
+                if (ClientViewModel.AddNewPositionInClientShoppingCart(InputProductQuantity.Text, null, _currentPos))
                     this.Close();
             }
         }
