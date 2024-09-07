@@ -8,9 +8,6 @@ namespace MilkParadiseShop.Helpers
 {
     public static class ValueValidator
     {
-        public static bool CheckNullOrEmptyParams(params string[] values)
-        {
-            return values.Any(String.IsNullOrEmpty);
-        }
+        public static bool CheckNullOrEmptyParams(params string[] values) => values.Any(String.IsNullOrEmpty);
     }
 }

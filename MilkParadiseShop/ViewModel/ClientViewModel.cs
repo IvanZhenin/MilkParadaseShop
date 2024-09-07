@@ -16,24 +16,7 @@ namespace MilkParadiseShop.ViewModel
 {
     public class ClientViewModel
     {
-        public static List<Order> UpdateDataGridClientOrdersWithSearch(string orderId, DateTime? dateCreate, string selectedStatus)
-        {
-            int orderNumId = (orderId.All(c => char.IsDigit(c)) && orderId != null
-                && orderId != string.Empty) ? Convert.ToInt32(orderId) : 0;
-
-            using (BaseContext baseContext = new BaseContext())
-            {
-                var newList = baseContext.Orders.Where(p => p.ClientId == ClientLogin.NumId).ToList();
-                if (orderNumId > 0)
-                    newList = newList.Where(p => p.NumId == orderNumId).ToList();
-                if (dateCreate != null)
-                    newList = newList.Where(p => p.DateCreate == dateCreate).ToList();
-                if (selectedStatus != "Любой" && !String.IsNullOrEmpty(selectedStatus))
-                    newList = newList.Where(p => p.Status == selectedStatus).ToList();
-                return newList;
-            }
-        }
-        public static List<Order> UpdateDataGridClientOrdersWithoutSearch()
+        public static List<Order> GetClientOrdersList()
         {
             using (BaseContext baseContext = new BaseContext())
             {
@@ -47,7 +30,7 @@ namespace MilkParadiseShop.ViewModel
 
             if (order.Status == NamesCollector.WorkingOrderStatusList[2] || order.Status == NamesCollector.WorkingOrderStatusList[3])
             {
-                MessageBox.Show($"Вы не можете отменить данный заказ, так как он {order.Status}!", "Ошибка");
+                MessageBox.Show($"Вы не можете отменить данный заказ, так как он {order.Status.ToLower()}!", "Ошибка");
                 return;
             }
 
@@ -143,10 +126,10 @@ namespace MilkParadiseShop.ViewModel
         }
         public static void DeletePositionFromClientShoppingCart(ClientProduct prodPosition)
         {
-            using (BaseContext baseContext = new BaseContext())
-            {
-                if (MessageBox.Show($"Вы точно хотите удалить позицию товара {prodPosition.ProdName} из корзины?",
+            if (MessageBox.Show($"Вы точно хотите удалить позицию товара {prodPosition.ProdName} из корзины?",
                    "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
                 {
                     try
                     {

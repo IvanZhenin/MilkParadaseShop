@@ -24,6 +24,17 @@ namespace MilkParadiseShop.Model
         public string PhoneNumber { get; set; }
         public byte[] Image { get; set; }
         public JobRole JobRole { get; set; }
+        public string JobName { 
+            get
+            {
+                string result = string.Empty;
+                using (BaseContext baseContext = new BaseContext()) 
+                {
+                    result = baseContext.JobRoles.Where(p => p.NumId == RoleId).FirstOrDefault().Name;
+                }
+                return result;
+            } 
+        }
         public ICollection<Order> Orders { get; set; }
     }
 }

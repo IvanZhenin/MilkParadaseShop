@@ -22,7 +22,7 @@ namespace MilkParadiseShop.Helpers
             for (int i = 0; i< 3; i++)
                 ClientFrame.GoBack();
         }
-        public static Window WorkerSellerTargetWindow { get; set; }
-        public static Frame WorkerSellerFrame { get; set; }
+        public static Window WorkerSellerCourierTargetWindow { get; set; }
+        public static Frame WorkerSellerCourierFrame { get; set; }
     }
 }

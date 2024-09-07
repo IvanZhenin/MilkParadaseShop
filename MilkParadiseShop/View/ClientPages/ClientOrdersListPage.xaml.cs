@@ -76,14 +76,14 @@ namespace MilkParadiseShop.View.ClientPages
         {
             if (CheckSearchOrders.IsChecked == true)
             {
-                DataGridClientOrders.ItemsSource = ClientViewModel.UpdateDataGridClientOrdersWithSearch(
+                DataGridClientOrders.ItemsSource = BaseViewModel.GetUserOrdersListWithSearch(
                     InputOrderId.Text,
                     SelectOrderDateCreate.SelectedDate ?? null,
-                    ChooseOrderStatus.SelectedItem.ToString());
+                    ChooseOrderStatus.SelectedItem.ToString(), ClientViewModel.GetClientOrdersList());
             }
             else
             {
-                DataGridClientOrders.ItemsSource = ClientViewModel.UpdateDataGridClientOrdersWithoutSearch();
+                DataGridClientOrders.ItemsSource = ClientViewModel.GetClientOrdersList();
             }
             TextOrdersCount.Text = $"Количество заказов: {DataGridClientOrders.Items.Count}";
         }

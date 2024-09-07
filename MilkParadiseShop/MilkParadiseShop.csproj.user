@@ -40,13 +40,10 @@
     <Compile Update="View\ClientWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CourierWindow.xaml.cs">
+    <Compile Update="View\SellerCourierPages\SellerCourierCheckOrdersPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\SellerPages\SellerCheckOrdersPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\SellerWindow.xaml.cs">
+    <Compile Update="View\SellerCourierWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -87,13 +84,10 @@
     <Page Update="View\ClientWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\CourierWindow.xaml">
+    <Page Update="View\SellerCourierPages\SellerCourierCheckOrdersPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\SellerPages\SellerCheckOrdersPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\SellerWindow.xaml">
+    <Page Update="View\SellerCourierWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

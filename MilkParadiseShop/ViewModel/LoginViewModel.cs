@@ -84,12 +84,9 @@ namespace MilkParadiseShop.ViewModel
                     adminWindow.Show();
                     break;
                 case (2):
-                    SellerWindow sellerWindow = new SellerWindow();
-                    sellerWindow.Show();
-                    break;
                 case (3):
-                    CourierWindow courierWindow = new CourierWindow();
-                    courierWindow.Show();
+                    SellerCourierWindow sellerWindow = new SellerCourierWindow();
+                    sellerWindow.Show();
                     break;
             }
             UIManager.LoginTargetWindow.Close();
@@ -153,19 +150,20 @@ namespace MilkParadiseShop.ViewModel
         }
         private static void AddNewClient(Client client)
         {
-            try
+            using (BaseContext baseContext = new BaseContext())
             {
-                using (BaseContext baseContext = new BaseContext())
+                try
                 {
                     baseContext.Clients.Add(client);
                     baseContext.SaveChanges();
                     MessageBox.Show("Регистрация прошла успешно!", "Внимание");
                     UIManager.LoginDataPanelFrame.GoBack();
+
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                }
             }
         }
 

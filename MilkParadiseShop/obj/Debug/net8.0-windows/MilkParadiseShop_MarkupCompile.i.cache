@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\App.xaml
-15466141451
+14627999693
 
-44609472474
+43-1084349047
 2412031528559
-View\AdminWindow.xaml;View\ClientChooseProdQuantityWindow.xaml;View\ClientPages\ClientAcceptOrderOrCancelPage.xaml;View\ClientPages\ClientCheckProdsListPage.xaml;View\ClientPages\ClientEditHisProfilePage.xaml;View\ClientPages\ClientOrdersListPage.xaml;View\ClientPages\ClientPreviewCartInOrderPage.xaml;View\ClientWindow.xaml;View\CourierWindow.xaml;View\LoginPages\AuthorizationPage.xaml;View\LoginPages\RegistrationPage.xaml;View\LoginWindow.xaml;View\SellerPages\SellerCheckOrdersPage.xaml;View\SellerWindow.xaml;View\UserCheckOrderCartWindow.xaml;
+View\AdminWindow.xaml;View\ClientChooseProdQuantityWindow.xaml;View\ClientPages\ClientAcceptOrderOrCancelPage.xaml;View\ClientPages\ClientCheckProdsListPage.xaml;View\ClientPages\ClientEditHisProfilePage.xaml;View\ClientPages\ClientOrdersListPage.xaml;View\ClientPages\ClientPreviewCartInOrderPage.xaml;View\ClientWindow.xaml;View\LoginPages\AuthorizationPage.xaml;View\LoginPages\RegistrationPage.xaml;View\LoginWindow.xaml;View\SellerCourierPages\SellerCourierCheckOrdersPage.xaml;View\SellerCourierWindow.xaml;View\UserCheckOrderCartWindow.xaml;
 
-False
+True
 

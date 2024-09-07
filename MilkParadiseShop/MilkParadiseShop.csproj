@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="View\AdminPages\" />
-    <Folder Include="View\CourierPages\" />
   </ItemGroup>
 
   <ItemGroup>
