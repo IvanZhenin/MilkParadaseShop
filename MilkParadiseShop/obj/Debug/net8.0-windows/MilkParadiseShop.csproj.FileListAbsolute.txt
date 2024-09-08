@@ -111,3 +111,7 @@ D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminEditWorkersDataPage.baml
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminAddNewWorkerPage.g.cs
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminAddNewWorkerPage.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminCheckClientsListPage.g.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminCheckClientsListPage.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminChooseClientDiscountWindow.g.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminChooseClientDiscountWindow.baml

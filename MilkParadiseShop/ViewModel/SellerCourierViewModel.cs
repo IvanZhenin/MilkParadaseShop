@@ -15,11 +15,11 @@ namespace MilkParadiseShop.ViewModel
             {
                 if (WorkerLogin.RoleId == 2)
                 {
-                    return baseContext.Orders.Where(p => p.OrderType == "Самовывоз" &&
+                    return baseContext.Orders.Where(p => p.OrderType == "Самовывоз" && p.ArchStatus != true &&
                     (p.WorkerId == null || p.WorkerId == WorkerLogin.NumId)).ToList();
                 }
                 
-                return baseContext.Orders.Where(p => p.OrderType == "Доставка" &&
+                return baseContext.Orders.Where(p => p.OrderType == "Доставка" && p.ArchStatus != true &&
                     (p.WorkerId == null || p.WorkerId == WorkerLogin.NumId)).ToList();
             }
         }

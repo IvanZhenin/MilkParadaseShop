@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\App.xaml
-18-746809325
+202001376748
 
-48-948225204
+491295886614
 2412031528559
-View\AdminPages\AdminAddNewWorkerPage.xaml;View\AdminPages\AdminCheckWorkersListPage.xaml;View\AdminPages\AdminEditWorkersDataPage.xaml;View\AdminPages\AdminGeneralPanelPage.xaml;View\AdminWindow.xaml;View\ClientChooseProdQuantityWindow.xaml;View\ClientPages\ClientAcceptOrderOrCancelPage.xaml;View\ClientPages\ClientCheckProdsListPage.xaml;View\ClientPages\ClientEditHisProfilePage.xaml;View\ClientPages\ClientOrdersListPage.xaml;View\ClientPages\ClientPreviewCartInOrderPage.xaml;View\ClientWindow.xaml;View\LoginPages\AuthorizationPage.xaml;View\LoginPages\RegistrationPage.xaml;View\LoginWindow.xaml;View\SellerCourierPages\SellerCourierCheckOrdersPage.xaml;View\SellerCourierWindow.xaml;View\UserCheckOrderCartWindow.xaml;
+View\AdminChooseClientDiscountWindow.xaml;View\AdminPages\AdminAddNewWorkerPage.xaml;View\AdminPages\AdminCheckClientsListPage.xaml;View\AdminPages\AdminCheckWorkersListPage.xaml;View\AdminPages\AdminEditWorkersDataPage.xaml;View\AdminPages\AdminGeneralPanelPage.xaml;View\AdminWindow.xaml;View\ClientChooseProdQuantityWindow.xaml;View\ClientPages\ClientAcceptOrderOrCancelPage.xaml;View\ClientPages\ClientCheckProdsListPage.xaml;View\ClientPages\ClientEditHisProfilePage.xaml;View\ClientPages\ClientOrdersListPage.xaml;View\ClientPages\ClientPreviewCartInOrderPage.xaml;View\ClientWindow.xaml;View\LoginPages\AuthorizationPage.xaml;View\LoginPages\RegistrationPage.xaml;View\LoginWindow.xaml;View\SellerCourierPages\SellerCourierCheckOrdersPage.xaml;View\SellerCourierWindow.xaml;View\UserCheckOrderCartWindow.xaml;
 
 True
 

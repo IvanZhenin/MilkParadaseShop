@@ -68,8 +68,8 @@ namespace MilkParadiseShop.View.ClientPages
 
         private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            _timerForOrders.Start();
             UpdateOrders();
+            _timerForOrders.Start();
         }
 
         private void UpdateOrders()
@@ -91,7 +91,8 @@ namespace MilkParadiseShop.View.ClientPages
         private void ButtonCancelOrder(object sender, RoutedEventArgs e)
         {
             _timerForOrders.Stop();
-            ClientViewModel.CancelCurrentClientOrder((sender as Button).DataContext as Order);
+            if (ClientViewModel.CancelCurrentClientOrder((sender as Button).DataContext as Order))
+                UpdateOrders();
             _timerForOrders.Start();
         }
     }

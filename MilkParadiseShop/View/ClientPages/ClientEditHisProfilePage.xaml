@@ -31,6 +31,13 @@
                 <TextBox Name="InputEmail" Width="200" Text="{Binding Email}"/>
             </GroupBox>
 
+            <GroupBox Header="Пол">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <RadioButton Name="MaleGenderCheck" Content="Мужчина" GroupName="GenderChange" IsChecked="True"/>
+                    <RadioButton Name="FemaleGenderCheck" Content="Женщина" GroupName="GenderChange"/>
+                </StackPanel>
+            </GroupBox>
+           
             <GroupBox Header="Пароль">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal" Margin="5">

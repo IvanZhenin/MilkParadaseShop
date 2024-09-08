@@ -65,6 +65,7 @@ namespace MilkParadiseShop.View.AdminPages
 
         private void ButtonAddNewWorker(object sender, RoutedEventArgs e)
         {
+            _timerForWorkers.Stop();
             UIManager.WorkerAdminFrame.Navigate(new AdminAddNewWorkerPage());
         }
 
@@ -78,7 +79,8 @@ namespace MilkParadiseShop.View.AdminPages
         private void ButtonDeleteWorker(object sender, RoutedEventArgs e)
         {
             _timerForWorkers.Stop();
-            AdminViewModel.DeleteCurrentWorker((sender as Button).DataContext as Worker);
+            if (AdminViewModel.DeleteCurrentWorker((sender as Button).DataContext as Worker))
+                UpdateWorkers();
             _timerForWorkers.Start();
         }
 

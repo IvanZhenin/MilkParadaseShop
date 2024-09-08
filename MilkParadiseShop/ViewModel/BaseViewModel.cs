@@ -106,13 +106,6 @@ namespace MilkParadiseShop.ViewModel
                 return currentOrderList;
             }
         }
-        public static List<Order> UpdateUserOrdersListWithoutSearch(List<Order> currentOrderList)
-        {
-            using (BaseContext baseContext = new BaseContext())
-            {
-                return baseContext.Orders.Where(p => p.ClientId == ClientLogin.NumId).ToList();
-            }
-        }
         public static void WorkerTakesNewOrder(Order currentOrder)
         {
             if (currentOrder == null) 

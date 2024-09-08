@@ -33,7 +33,7 @@ namespace MilkParadiseShop.View.AdminPages
 
         private void ButtonGoCheckClients(object sender, RoutedEventArgs e)
         {
-
+            UIManager.WorkerAdminFrame.Navigate(new AdminCheckClientsListPage());
         }
 
         private void ButtonGoCheckOrders(object sender, RoutedEventArgs e)

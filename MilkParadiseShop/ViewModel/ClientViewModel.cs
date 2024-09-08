@@ -20,18 +20,18 @@ namespace MilkParadiseShop.ViewModel
         {
             using (BaseContext baseContext = new BaseContext())
             {
-                return baseContext.Orders.Where(p => p.ClientId == ClientLogin.NumId).ToList();
+                return baseContext.Orders.Where(p => p.ClientId == ClientLogin.NumId && p.ArchStatus != true).ToList();
             }
         }
-        public static void CancelCurrentClientOrder(Order order)
+        public static bool CancelCurrentClientOrder(Order order)
         {
             if (order == null)
-                return;
+                return false;
 
             if (order.Status == NamesCollector.WorkingOrderStatusList[2] || order.Status == NamesCollector.WorkingOrderStatusList[3])
             {
                 MessageBox.Show($"Вы не можете отменить данный заказ, так как он {order.Status.ToLower()}!", "Ошибка");
-                return;
+                return false;
             }
 
             if (MessageBox.Show($"Вы точно хотите отменить заказ под номером {order.NumId}?",
@@ -45,6 +45,7 @@ namespace MilkParadiseShop.ViewModel
                         currentOrder.Status = NamesCollector.WorkingOrderStatusList[3];
                         baseContext.SaveChanges();
                         MessageBox.Show("Заказ успешно отменен!", "Внимание");
+                        return true;
                     }
                     catch (Exception ex)
                     {
@@ -52,8 +53,10 @@ namespace MilkParadiseShop.ViewModel
                     }
                 }
             }
+
+            return false;
         }
-        public static void ClearClientShoppingCart()
+        public static bool ClearClientShoppingCart()
         {
             using (BaseContext baseContext = new BaseContext())
             {
@@ -61,7 +64,7 @@ namespace MilkParadiseShop.ViewModel
                 if (prodList.Count <= 0)
                 {
                     MessageBox.Show("Корзина итак пустая!", "Внимание");
-                    return;
+                    return false;
                 }
 
                 if (MessageBox.Show($"Вы точно хотите очистить корзину с {ShoppingCart.ProductListCount()} товарами?",
@@ -72,6 +75,7 @@ namespace MilkParadiseShop.ViewModel
                         baseContext.ClientProducts.RemoveRange(prodList);
                         baseContext.SaveChanges();
                         MessageBox.Show("Корзина была успешно очищена!", "Внимание");
+                        return true;
                     }
                     catch (Exception ex)
                     {
@@ -79,6 +83,8 @@ namespace MilkParadiseShop.ViewModel
                     }
                 }
             }
+
+            return false;
         }
         public static bool AddNewPositionInClientShoppingCart(string quantity, Product product = null, ClientProduct targetProdPos = null)
         {
@@ -196,6 +202,71 @@ namespace MilkParadiseShop.ViewModel
             using (BaseContext baseContext = new BaseContext())
             {
                 return baseContext.Clients.Where(p => p.NumId == ClientLogin.NumId).FirstOrDefault();
+            }
+        }
+        public static void EditClientAccountData(string name, string surName, string phoneNumber, string gender,
+            string email, string newPassword, string repeatNewPassword, bool acceptNewPassword, string? patronymic = null)
+        {
+            if (ValueValidator.CheckNullOrEmptyParams(name, surName, phoneNumber, email))
+            {
+                MessageBox.Show("Поля: имя, фамилия, номер телефона и эл. почта обязательны к заполнению!", "Ошибка");
+                return;
+            }
+
+            if (MessageBox.Show("Вы точно хотите внести данные изменения в свой аккаунт?",
+                   "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    StringBuilder errors = new StringBuilder();
+
+                    if (!phoneNumber.All(Char.IsDigit))
+                    {
+                        errors.AppendLine("Номер телефона должен содержать только цифры!");
+                    }
+
+                    if (acceptNewPassword)
+                    {
+                        if (String.IsNullOrEmpty(newPassword) || String.IsNullOrEmpty(repeatNewPassword))
+                        {
+                            errors.AppendLine("Поля нового пароля не могут быть пустыми!");
+                        }
+                        else if (newPassword != repeatNewPassword)
+                        {
+                            errors.AppendLine("Новые пароли не совпадают!");
+                        }
+                        else if (InputValidator.CheckRussianLetters(newPassword) || InputValidator.CheckRussianLetters(repeatNewPassword))
+                        {
+                            errors.AppendLine("Пароль не должен содержать русских символов!");
+                        }
+                    }
+
+                    if (errors.Length > 0)
+                    {
+                        MessageBox.Show(errors.ToString(), "Ошибка");
+                        return;
+                    }
+
+                    try
+                    {
+                        Client changedClient = baseContext.Clients.Where(p => p.NumId == ClientLogin.NumId).First();
+                        changedClient.Name = name;
+                        changedClient.SurName = surName;
+                        changedClient.Patronymic = patronymic;
+                        changedClient.Gender = gender[0] == 'М' ? "Мужской" : "Женский";
+                        changedClient.PhoneNumber = phoneNumber;
+                        changedClient.Email = email;
+                        if (acceptNewPassword)
+                            changedClient.Password = newPassword;
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Изменения успешно сохранены!", "Внимание");
+                        UIManager.ClientFrame.GoBack();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
             }
         }
     }

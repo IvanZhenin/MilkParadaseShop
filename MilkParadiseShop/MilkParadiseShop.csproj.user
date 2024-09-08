@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\AdminChooseClientDiscountWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AdminPages\AdminAddNewWorkerPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminPages\AdminCheckClientsListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AdminPages\AdminCheckWorkersListPage.xaml.cs">
@@ -60,7 +66,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\AdminChooseClientDiscountWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AdminPages\AdminAddNewWorkerPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminPages\AdminCheckClientsListPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AdminPages\AdminCheckWorkersListPage.xaml">

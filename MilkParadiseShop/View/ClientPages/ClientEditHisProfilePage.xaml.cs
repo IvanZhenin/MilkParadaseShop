@@ -27,12 +27,15 @@ namespace MilkParadiseShop.View.ClientPages
         {
             InitializeComponent();
             DataContext = ClientViewModel.GetClientContext();
+            if (ClientViewModel.GetClientContext().Gender[0] == 'Ж')
+                FemaleGenderCheck.IsChecked = true;
         }
 
         private void ButtonSaveClientAccountChanges(object sender, RoutedEventArgs e)
         {
-            LoginViewModel.EditClientAccountData(InputName.Text, InputSurName.Text, InputPhoneNumber.Text,
-                InputEmail.Text, InputNewPassword.Text, InputNewPasswordRepeat.Text, CheckEditPassword.IsChecked == true ? true : false,
+            ClientViewModel.EditClientAccountData(InputName.Text, InputSurName.Text, InputPhoneNumber.Text, 
+                MaleGenderCheck.IsChecked == true ? "Мужской" : "Женский", InputEmail.Text, 
+                InputNewPassword.Text, InputNewPasswordRepeat.Text, CheckEditPassword.IsChecked == true ? true : false,
                 String.IsNullOrEmpty(InputPatronymic.Text) == true ? null : InputPatronymic.Text);
         }
 

@@ -45,6 +45,7 @@ namespace MilkParadiseShop.View.ClientPages
         }
         private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
+            UpdateProducts();
             _timerForProducts.Start();
         }
 
@@ -78,7 +79,8 @@ namespace MilkParadiseShop.View.ClientPages
         private void ButtonClearCurrentShoppingCart(object sender, RoutedEventArgs e)
         {
             _timerForProducts.Stop();
-            ClientViewModel.ClearClientShoppingCart();
+            if(ClientViewModel.ClearClientShoppingCart())
+                UpdateProducts();
             _timerForProducts.Start();
         }
         private void ButtonGoBack(object sender, RoutedEventArgs e)
@@ -93,9 +95,8 @@ namespace MilkParadiseShop.View.ClientPages
             ClientChooseProdQuantityWindow clientChooseProdQuantityWindow
                 = new ClientChooseProdQuantityWindow((sender as Button).DataContext as Product, null);
             clientChooseProdQuantityWindow.ShowDialog();
+            UpdateProducts();
             _timerForProducts.Start();
         }
-
-        
     }
 }

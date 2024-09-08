@@ -206,7 +206,7 @@ namespace MilkParadiseShop.ViewModel
                             currentWorker.Password = newPassword;
                         currentWorker.Image = ImageConverterToByte(image);
                         baseContext.SaveChanges();
-                        MessageBox.Show("Изменения успешно сохранены!","Внимание");
+                        MessageBox.Show("Изменения успешно сохранены!", "Внимание");
                         return true;
                     }
                     catch (Exception ex)
@@ -227,7 +227,7 @@ namespace MilkParadiseShop.ViewModel
                 bitmapImage.StreamSource = memoryStream;
                 bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapImage.EndInit();
-            } 
+            }
             return bitmapImage;
         }
         private static byte[] ImageConverterToByte(BitmapImage image)
@@ -266,10 +266,10 @@ namespace MilkParadiseShop.ViewModel
 
             return null;
         }
-        public static void DeleteCurrentWorker(Worker targetWorker)
+        public static bool DeleteCurrentWorker(Worker targetWorker)
         {
             if (targetWorker == null)
-                return;
+                return false;
 
             if (MessageBox.Show($"Вы точно хотите удалить сотрудника под номером {targetWorker.NumId}?",
                    "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -280,7 +280,7 @@ namespace MilkParadiseShop.ViewModel
                     if (workersOrderList.Count > 0)
                     {
                         MessageBox.Show("Вы не можете удалить сотрудника, так как у него имеются заказы", "Ошибка");
-                        return;
+                        return false;
                     }
 
                     try
@@ -288,6 +288,7 @@ namespace MilkParadiseShop.ViewModel
                         baseContext.Workers.Remove(targetWorker);
                         baseContext.SaveChanges();
                         MessageBox.Show("Сотрудник был успешно удален!", "Внимание");
+                        return true;
                     }
                     catch (Exception ex)
                     {
@@ -295,6 +296,95 @@ namespace MilkParadiseShop.ViewModel
                     }
                 }
             }
+
+            return false;
+        }
+
+        public static List<Client> GetAdminClientsList()
+        {
+            using (BaseContext baseContext = new BaseContext())
+            {
+                return baseContext.Clients.ToList();
+            }
+        }
+        public static List<Client> UpdateDataGridClientsWithSearch(string numId,
+            string name, string gender)
+        {
+            int numberId = (numId.All(c => char.IsDigit(c)) && numId != null
+                && numId != string.Empty) ? Convert.ToInt32(numId) : 0;
+
+            using (BaseContext baseContext = new BaseContext())
+            {
+                var newList = GetAdminClientsList();
+                if (numberId > 0)
+                    newList = newList.Where(p => p.NumId == numberId).ToList();
+                if (name != null && name != string.Empty)
+                    newList = newList.Where(p => p.Name.ToLower().Contains(name.ToLower())
+                    || p.SurName.ToLower().Contains(name.ToLower())
+                    || p.Patronymic.ToLower().Contains(name.ToLower())).ToList();
+                if (gender != null && gender != string.Empty)
+                    newList = newList.Where(p => p.Gender[0] == gender[0]).ToList();
+
+                return newList;
+            }
+        }
+
+        public static bool DeleteCurrentClient(Client targetClient)
+        {
+            if (targetClient == null)
+                return false;
+
+            if (MessageBox.Show($"Вы точно хотите удалить клиента под номером {targetClient.NumId}?",
+                   "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    var clientsOrderList = baseContext.Orders.Where(p => p.WorkerId == targetClient.NumId).ToList();
+                    if (clientsOrderList.Count > 0)
+                    {
+                        MessageBox.Show("Вы не можете удалить клиента, так как у него имеются заказы", "Ошибка");
+                        return false;
+                    }
+
+                    try
+                    {
+                        baseContext.Clients.Remove(targetClient);
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Клиент был успешно удален!", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+            return false;
+        }
+        public static bool EditClientDiscount(string discount, Client targetClient)
+        {
+            if (discount == null || discount == string.Empty || !discount.All(p => Char.IsDigit(p)) || Convert.ToInt32(discount) <= 0)
+            {
+                MessageBox.Show("Неверно указан размер скидки!", "Ошибка");
+                return false;
+            }
+
+            using (BaseContext baseContext = new BaseContext())
+            {
+                try
+                {
+                    var currentClient = baseContext.Clients.Where(p => p.NumId == targetClient.NumId).FirstOrDefault();
+                    currentClient.Discount = Convert.ToInt32(discount);
+                    MessageBox.Show("Скидка клиента успешно изменена!", "Внимание");
+                    baseContext.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                }
+            }
+
+            return true;
         }
     }
 }
