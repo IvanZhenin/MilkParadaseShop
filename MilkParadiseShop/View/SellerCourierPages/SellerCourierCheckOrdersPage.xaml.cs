@@ -54,8 +54,8 @@ namespace MilkParadiseShop.View.SellerPages
 
         private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            _timerForOrders.Start();
             UpdateOrders();
+            _timerForOrders.Start();
         }
         private void UpdateOrders()
         {

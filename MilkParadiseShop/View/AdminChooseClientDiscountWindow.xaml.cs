@@ -25,7 +25,7 @@ namespace MilkParadiseShop.View
         public AdminChooseClientDiscountWindow(Client targetClient)
         {
             InitializeComponent();
-            TextCurrentProduct.Text = $"Изменение скидки клиента {targetClient.NumId}";
+            TextCurrentProduct.Text = $"Изменение скидки клиента номер {targetClient.NumId}";
             _currentClient = targetClient;
         }
 
@@ -39,6 +39,5 @@ namespace MilkParadiseShop.View
         {
             this.Close();
         }
-
     }
 }

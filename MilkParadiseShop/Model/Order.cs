@@ -38,6 +38,27 @@ namespace MilkParadiseShop.Model
         public string Status { get; set; }
         public decimal TotalPrice { get; set; }
         public bool ArchStatus { get; set; }
+        public string ArchiveText
+        {
+            get
+            {
+                string result = string.Empty;
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    var order = baseContext.Orders.Where(p => p.NumId == NumId).FirstOrDefault();
+                    if (order.ArchStatus == true)
+                    {
+                        result = "Архивирован";
+                    }
+                    else
+                    {
+                        result = "Не архивирован";
+                    }
+                }
+                return result;
+            }
+        }
+
         public Worker Worker { get; set; }
         public Client Client { get; set; }
         public string WorkerFullName

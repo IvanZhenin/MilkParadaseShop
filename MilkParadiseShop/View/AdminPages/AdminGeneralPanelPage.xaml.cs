@@ -38,7 +38,7 @@ namespace MilkParadiseShop.View.AdminPages
 
         private void ButtonGoCheckOrders(object sender, RoutedEventArgs e)
         {
-
+            UIManager.WorkerAdminFrame.Navigate(new AdminCheckOrderListPage());
         }
 
         private void ButtonGoCheckProductsAndCategories(object sender, RoutedEventArgs e)

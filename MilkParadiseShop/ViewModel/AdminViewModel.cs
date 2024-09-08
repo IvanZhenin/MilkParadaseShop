@@ -386,5 +386,54 @@ namespace MilkParadiseShop.ViewModel
 
             return true;
         }
+        public static List<Order> GetAdminOrdersList()
+        {
+            using (BaseContext baseContext = new BaseContext())
+            {
+                return baseContext.Orders.ToList();
+            }
+        }
+
+        public static bool PutOrTakeOrderArchive(Order order, bool goToArchive)
+        {
+            if (order == null)
+                return false;
+
+            string message = goToArchive ? "поместить" : "вернуть из архива";
+            if (MessageBox.Show($"Вы точно хотите {message} заказ номер {order.NumId}?",
+                  "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    var currentOrder = baseContext.Orders.Where(p => p.NumId == order.NumId).First();
+                    if (currentOrder.ArchStatus == true && goToArchive)
+                    {
+                        MessageBox.Show("Данный заказ уже находится в архиве!", "Ошибка");
+                        return false;
+                    }
+
+                    if (currentOrder.ArchStatus != true && !goToArchive)
+                    {
+                        MessageBox.Show("Данный заказ не находится в архиве!", "Ошибка");
+                        return false;
+                    }
+
+                    currentOrder.ArchStatus = goToArchive ? true : false;
+
+                    try
+                    {
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Заказ был успешно архивирован!", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+
+            return false;
+        }
     }
 }
