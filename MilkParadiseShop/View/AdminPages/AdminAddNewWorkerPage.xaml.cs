@@ -33,7 +33,7 @@ namespace MilkParadiseShop.View.AdminPages
 
         private void ButtonLoadNewImage(object sender, RoutedEventArgs e)
         {
-            InputImage.Source = AdminViewModel.GetNewImage();
+            InputImage.Source = ImageByteConverter.GetNewBitmapImage();
         }
 
         private void ButtonClearCurrentImage(object sender, RoutedEventArgs e)

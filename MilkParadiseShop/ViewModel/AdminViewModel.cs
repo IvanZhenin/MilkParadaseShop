@@ -13,6 +13,8 @@ using MilkParadiseShop.Helpers;
 using System.IO;
 using System.ComponentModel;
 using System.Windows.Media;
+using Microsoft.VisualBasic.Logging;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MilkParadiseShop.ViewModel
 {
@@ -132,7 +134,7 @@ namespace MilkParadiseShop.ViewModel
                         newWorker.Email = email;
                         newWorker.Login = login;
                         newWorker.Password = password;
-                        newWorker.Image = ImageConverterToByte(image);
+                        newWorker.Image = ImageByteConverter.ImageConvertToByte(image);
                         baseContext.Workers.Add(newWorker);
                         baseContext.SaveChanges();
                         MessageBox.Show("Новый сотрудник успешно добавлен!", "Внимание");
@@ -204,7 +206,7 @@ namespace MilkParadiseShop.ViewModel
                         currentWorker.Login = login;
                         if (changePassword)
                             currentWorker.Password = newPassword;
-                        currentWorker.Image = ImageConverterToByte(image);
+                        currentWorker.Image = ImageByteConverter.ImageConvertToByte(image);
                         baseContext.SaveChanges();
                         MessageBox.Show("Изменения успешно сохранены!", "Внимание");
                         return true;
@@ -218,54 +220,7 @@ namespace MilkParadiseShop.ViewModel
 
             return false;
         }
-        public static ImageSource ByteConvertToImageSource(byte[] data)
-        {
-            BitmapImage bitmapImage = new BitmapImage();
-            using (MemoryStream memoryStream = new MemoryStream(data))
-            {
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = memoryStream;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-            }
-            return bitmapImage;
-        }
-        private static byte[] ImageConverterToByte(BitmapImage image)
-        {
-            if (image == null)
-                return null;
 
-            byte[] data;
-            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(image));
-            using (MemoryStream ms = new MemoryStream())
-            {
-                encoder.Save(ms);
-                data = ms.ToArray();
-            }
-            return data;
-        }
-        public static BitmapImage GetNewImage()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image files | *.jpg; *.jpeg; *.png; *.bmp | All Files | *.*";
-
-            try
-            {
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    string selectedImagePath = openFileDialog.FileName;
-                    BitmapImage bitmapImage = new BitmapImage(new Uri(selectedImagePath));
-                    return bitmapImage;
-                }
-            }
-            catch (System.NotSupportedException)
-            {
-                MessageBox.Show("Выбран неподходящий тип файла", "Ошибка");
-            }
-
-            return null;
-        }
         public static bool DeleteCurrentWorker(Worker targetWorker)
         {
             if (targetWorker == null)
@@ -433,6 +388,119 @@ namespace MilkParadiseShop.ViewModel
                 }
             }
 
+            return false;
+        }
+
+        public static List<Category> GetAdminProdCategoriesList()
+        {
+            using (BaseContext baseContext = new BaseContext())
+            {
+                return baseContext.Categories.ToList();
+            }
+        }
+        public static bool AddOrEditProduct(Product targetProduct, string name, string categoryName, string equipment,
+            string weight, string price, BitmapImage image = null)
+        {
+            if (ValueValidator.CheckNullOrEmptyParams(name, categoryName, equipment, weight, price))
+            {
+                MessageBox.Show("Поля: название, категория, комплектация, вес и цена являются обязательными к заполнению!", "Ошибка");
+                return false;
+            }
+
+            string message = targetProduct.NumId <= 0 ? "добавить новый товар" : "внести изменения в данную позицию";
+            string messageEnd = targetProduct.NumId <= 0 ? "Товар был успешно добавлен!" : "Изменения успешно сохранены!";
+            if (MessageBox.Show($"Вы точно хотите {message}?",
+                  "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    StringBuilder errors = new StringBuilder();
+                    if (!CheckTryConverter.ConvertToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(weight)))
+                    {
+                        errors.AppendLine("Неправильно указан вес, неверный формат!");
+                    }
+
+                    if (!CheckTryConverter.ConvertToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(price)))
+                    {
+                        errors.AppendLine("Неправильно указана цена, неверный формат!");
+                    }
+
+                    if (errors.Length > 0)
+                    {
+                        MessageBox.Show(errors.ToString(), "Ошибка");
+                        return false;
+                    }
+
+                    try
+                    {
+                        Product currentProduct = new Product();
+                        if (targetProduct.NumId > 0) 
+                            currentProduct = baseContext.Products.Where(p => p.NumId == targetProduct.NumId).First();
+                        currentProduct.Name = name;
+                        currentProduct.CategoryId = GetCategoryNumId(categoryName);
+                        currentProduct.Equipment = equipment;
+                        currentProduct.Weight = Convert.ToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(weight));
+                        currentProduct.Price = Convert.ToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(price));
+                        currentProduct.Image = ImageByteConverter.ImageConvertToByte(image);
+
+                        if (targetProduct.NumId <= 0)
+                        {
+                            currentProduct.NumId = UniqueNewId.GetNewNumId(BaseViewModel.UpdateProductsListWithoutSearch()
+                                .Select(p => p.NumId).ToList());
+                            baseContext.Products.Add(currentProduct);
+                        }
+                        baseContext.SaveChanges();
+                        MessageBox.Show($"{messageEnd}", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+            return false;
+        }
+        public static int GetCategoryNumId(string categoryName)
+        {
+            using (BaseContext baseContext = new BaseContext()) 
+            {
+                return baseContext.Categories.Where(p => p.Name == categoryName).FirstOrDefault().NumId;
+            }
+        }
+
+        public static bool DeleteCurrentProduct(Product targetProduct)
+        {
+            if (targetProduct == null)
+                return false;
+
+            if (MessageBox.Show($"Вы точно хотите удалить товар под номером {targetProduct.NumId}?",
+                   "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    var prodsOrderList = baseContext.ProdsInOrders.Where(p => p.ProdId == targetProduct.NumId).ToList();
+                    if (prodsOrderList.Count > 0)
+                    {
+                        MessageBox.Show("Вы не можете удалить товар, так как по нему имеются заказы", "Ошибка");
+                        return false;
+                    }
+
+                    try
+                    {
+                        var prodsInCartsList = baseContext.ClientProducts.Where(p => p.ProdId == targetProduct.NumId).ToList();
+                        baseContext.ClientProducts.RemoveRange(prodsInCartsList);
+                        baseContext.Products.Remove(targetProduct);
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Товар был успешно удален, вместе с ним были очищены корзины клиентов!", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
             return false;
         }
     }

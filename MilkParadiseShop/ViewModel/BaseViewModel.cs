@@ -38,7 +38,7 @@ namespace MilkParadiseShop.ViewModel
             return price * (1 - (decimal)ClientLogin.Discount / 100);
         }
 
-        public static List<Product> UpdateDataGridProductsWithSearch(string nameProd,
+        public static List<Product> UpdateProductsListWithSearch(string nameProd,
             string categoryName, string minPrice, string maxPrice)
         {
             using (BaseContext context = new BaseContext())
@@ -64,7 +64,7 @@ namespace MilkParadiseShop.ViewModel
             }
         }
 
-        public static List<Product> UpdateDataGridProductsWithoutSearch()
+        public static List<Product> UpdateProductsListWithoutSearch()
         {
             using (BaseContext context = new BaseContext())
             {

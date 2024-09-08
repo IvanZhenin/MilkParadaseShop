@@ -1,0 +1,100 @@
+﻿<Page x:Class="MilkParadiseShop.View.AdminPages.AdminCheckProductsAndCategoriesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkParadiseShop.View.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="594" d:DesignWidth="1060"
+      Title="AdminCheckProductsAndCategoriesPage" IsVisibleChanged="PageIsVisibleChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <TabControl>
+            <TabItem Header="Товары" Width="100">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <ListView Name="ListViewProducts" Grid.Row="0" Margin="5" HorizontalContentAlignment="Center" 
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Single">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="300" Height="400">
+                                    <StackPanel Margin="5" Orientation="Vertical">
+                                        <Image Width="220" Height="150">
+                                            <Image.Source>
+                                                <Binding Path="Image">
+                                                    <Binding.TargetNullValue>
+                                                        <ImageSource>/Resources/DefaultProduct.png</ImageSource>
+                                                    </Binding.TargetNullValue>
+                                                </Binding>
+                                            </Image.Source>
+                                        </Image>
+                                        <TextBlock Text="{Binding NumId}" Margin="5"/>
+                                        <TextBlock Text="{Binding Name}" Margin="5"/>
+                                        <TextBlock Text="{Binding CategoryName}" Margin="5"/>
+                                        <TextBlock Text="{Binding Equipment}" Margin="5"/>
+                                        <TextBlock Text="{Binding Weight}" Margin="5"/>
+                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Width="100" Height="50" Margin="5"
+                                                    Content="Изменить" Click="ButtonEditCurrentProduct"/>
+                                            <Button Width="100" Height="50" Margin="5"
+                                                    Content="Удалить" Click="ButtonDeleteCurrentProduct"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Grid.Row="1" Content="Добавить новый товар" Width="165" 
+                            Height="45" Margin="5" Click="ButtonAddNewProduct"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Категории" Width="100">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.Row="0" Name="DataGridAdminCheckCategories" IsReadOnly="True"
+                              AutoGenerateColumns="False" SelectionMode="Single" Margin="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding NumId}"/>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Изменить" Click="ButtonEditCategory"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Удалить" Click="ButtonDeleteCategory"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Grid.Row="1" Content="Добавить новую категорию" Width="165" 
+                            Height="45" Margin="5" Click="ButtonAddNewCategory"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
+            <Button Content="На главную" Width="120" Height="30" Click="ButtonGoBack" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Page>

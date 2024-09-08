@@ -30,7 +30,7 @@ namespace MilkParadiseShop.View.AdminPages
             InitializeComponent();
             DataContext = targerWorker;
             if(targerWorker.Image != null)
-                InputImage.Source = AdminViewModel.ByteConvertToImageSource(targerWorker.Image);
+                InputImage.Source = ImageByteConverter.ByteConvertToImageSource(targerWorker.Image);
             ChooseWorkerRole.ItemsSource = AdminViewModel.GetJobRoleNamesForAdmin();
             ChooseWorkerRole.SelectedIndex = AdminViewModel.GetIndexOfJobRoleName(targerWorker);
             ChooseWorkerGender.ItemsSource = NamesCollector.WorkersGenderTypeList;
@@ -39,7 +39,7 @@ namespace MilkParadiseShop.View.AdminPages
 
         private void ButtonLoadNewImage(object sender, RoutedEventArgs e)
         {
-            InputImage.Source = AdminViewModel.GetNewImage();
+            InputImage.Source = ImageByteConverter.GetNewBitmapImage();
         }
 
         private void ButtonClearCurrentImage(object sender, RoutedEventArgs e)

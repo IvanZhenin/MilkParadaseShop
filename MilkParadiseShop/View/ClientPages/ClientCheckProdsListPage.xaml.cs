@@ -53,13 +53,13 @@ namespace MilkParadiseShop.View.ClientPages
         {
             if (CheckSearchProducts.IsChecked == true)
             {
-                ListViewProducts.ItemsSource = BaseViewModel.UpdateDataGridProductsWithSearch(InputProductName.Text,
+                ListViewProducts.ItemsSource = BaseViewModel.UpdateProductsListWithSearch(InputProductName.Text,
                     ChooseProductCategory.SelectedIndex == 0 ? null : ChooseProductCategory.SelectedItem.ToString(),
                     SelectMinimalProductPrice.Text, SelectMaximalProductPrice.Text);
             }
             else
             {
-                ListViewProducts.ItemsSource = BaseViewModel.UpdateDataGridProductsWithoutSearch();
+                ListViewProducts.ItemsSource = BaseViewModel.UpdateProductsListWithoutSearch();
             }
             TextCurrentCountProds.Text = $"Товаров в корзине на данный момент: {ShoppingCart.ProductListCount()}";
         }
