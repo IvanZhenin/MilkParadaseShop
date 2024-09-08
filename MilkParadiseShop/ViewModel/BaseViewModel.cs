@@ -57,9 +57,7 @@ namespace MilkParadiseShop.ViewModel
                 if (Decimal.TryParse(maxPrice, out decimal checkMaxPrice))
                 {
                     if (checkMaxPrice > 0)
-                    {
                         newList = newList.Where(p => p.Price <= checkMaxPrice).ToList();
-                    }
                 }
 
                 return newList;

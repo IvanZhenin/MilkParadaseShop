@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MilkParadiseShop.Helpers;
+using MilkParadiseShop.View.AdminPages;
+using MilkParadiseShop.View.SellerPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,9 @@ namespace MilkParadiseShop.View
         public AdminWindow()
         {
             InitializeComponent();
+            UIManager.WorkerAdminTargetWindow = this;
+            UIManager.WorkerAdminFrame = AdminDataPanelFrame;
+            UIManager.WorkerAdminFrame.Navigate(new AdminGeneralPanelPage());
         }
     }
 }

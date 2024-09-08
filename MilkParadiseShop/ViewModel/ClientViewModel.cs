@@ -191,5 +191,12 @@ namespace MilkParadiseShop.ViewModel
 
             return false;
         }
+        public static Client GetClientContext()
+        {
+            using (BaseContext baseContext = new BaseContext())
+            {
+                return baseContext.Clients.Where(p => p.NumId == ClientLogin.NumId).FirstOrDefault();
+            }
+        }
     }
 }

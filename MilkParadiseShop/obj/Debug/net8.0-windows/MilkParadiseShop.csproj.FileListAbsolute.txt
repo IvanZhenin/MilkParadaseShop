@@ -103,3 +103,11 @@ D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\SellerCourierWindow.g.cs
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\SellerCourierPages\SellerCourierCheckOrdersPage.baml
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\SellerCourierWindow.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminCheckWorkersListPage.g.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminGeneralPanelPage.g.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminGeneralPanelPage.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminCheckWorkersListPage.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminEditWorkersDataPage.g.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminEditWorkersDataPage.baml
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminAddNewWorkerPage.g.cs
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\net8.0-windows\View\AdminPages\AdminAddNewWorkerPage.baml

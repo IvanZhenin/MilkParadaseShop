@@ -26,16 +26,7 @@ namespace MilkParadiseShop.View.ClientPages
         public ClientEditHisProfilePage()
         {
             InitializeComponent();
-            using (BaseContext baseContext = new BaseContext())
-            {
-                var targetClient = baseContext.Clients.Where(p => p.NumId == ClientLogin.NumId).First();
-                InputName.Text = targetClient.Name;
-                InputSurName.Text = targetClient.SurName;
-                InputPatronymic.Text = targetClient.Patronymic;
-                InputPhoneNumber.Text = targetClient.PhoneNumber;
-                InputEmail.Text = targetClient.Email;
-                InputCurrentPassword.Text = targetClient.Password;
-            }
+            DataContext = ClientViewModel.GetClientContext();
         }
 
         private void ButtonSaveClientAccountChanges(object sender, RoutedEventArgs e)

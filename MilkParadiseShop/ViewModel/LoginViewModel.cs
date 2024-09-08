@@ -188,13 +188,20 @@ namespace MilkParadiseShop.ViewModel
                         errors.AppendLine("Номер телефона должен содержать только цифры!");
                     }
 
-                    if (acceptNewPassword && (String.IsNullOrEmpty(newPassword) || String.IsNullOrEmpty(repeatNewPassword)))
+                    if (acceptNewPassword)
                     {
-                        errors.AppendLine("Поля нового пароля не могут быть пустыми!");
-                    }
-                    else if (acceptNewPassword && newPassword != repeatNewPassword)
-                    {
-                        errors.AppendLine("Новые пароли не совпадают!");
+                        if (String.IsNullOrEmpty(newPassword) || String.IsNullOrEmpty(repeatNewPassword))
+                        {
+                            errors.AppendLine("Поля нового пароля не могут быть пустыми!");
+                        }
+                        else if (newPassword != repeatNewPassword)
+                        {
+                            errors.AppendLine("Новые пароли не совпадают!");
+                        }
+                        else if (InputValidator.CheckRussianLetters(newPassword) || InputValidator.CheckRussianLetters(repeatNewPassword))
+                        {
+                            errors.AppendLine("Пароль не должен содержать русских символов!");
+                        }
                     }
 
                     if (errors.Length > 0)

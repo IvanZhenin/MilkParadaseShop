@@ -28,12 +28,18 @@ namespace MilkParadiseShop.Helpers
             "Не в архиве",
             "Архивирован",
         };
+
+        public static readonly List<string> WorkersGenderTypeList = new List<string>
+        {
+            "Мужской",
+            "Женский",
+        };
         public static List<string> CategoriesNames()
         {
             List<string> categoriesName = new List<string>();
-            using (BaseContext context = new BaseContext())
+            using (BaseContext baseContext = new BaseContext())
             {
-                foreach (var category in context.Categories)
+                foreach (var category in baseContext.Categories)
                     categoriesName.Add(category.Name);
             }
             return categoriesName;

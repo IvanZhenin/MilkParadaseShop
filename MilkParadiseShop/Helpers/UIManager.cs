@@ -24,5 +24,8 @@ namespace MilkParadiseShop.Helpers
         }
         public static Window WorkerSellerCourierTargetWindow { get; set; }
         public static Frame WorkerSellerCourierFrame { get; set; }
+
+        public static Window WorkerAdminTargetWindow { get; set; }
+        public static Frame WorkerAdminFrame { get; set; }
     }
 }

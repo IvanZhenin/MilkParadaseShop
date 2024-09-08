@@ -7,6 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\AdminPages\AdminAddNewWorkerPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminPages\AdminCheckWorkersListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminPages\AdminEditWorkersDataPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminPages\AdminGeneralPanelPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AdminWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -48,6 +60,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\AdminPages\AdminAddNewWorkerPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminPages\AdminCheckWorkersListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminPages\AdminEditWorkersDataPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminPages\AdminGeneralPanelPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AdminWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
