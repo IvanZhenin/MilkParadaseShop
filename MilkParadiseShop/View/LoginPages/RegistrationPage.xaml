@@ -3,60 +3,93 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.LoginPages"
       mc:Ignorable="d" 
       d:DesignHeight="564" d:DesignWidth="430"
       Title="RegistrationDataPage">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+            <RowDefinition Height="130"/>
+        </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Регистрация"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Имя"/>
-                <TextBox Width="100" Name="NameField"/>
+            <Image Source="/Resources/RegistrationImage.png" Width="70" Height="70" 
+            Stretch="Fill" VerticalAlignment="Top" Margin="0 30 0 5"/>
+            <TextBlock Text="Регистрация" FontFamily="Arial" FontSize="20" 
+                FontWeight="SemiBold" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Имя" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="NameField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Фамилия"/>
-                <TextBox Width="100" Name="SurnameField"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Фамилия" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="SurnameField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Пол"/>
-                <RadioButton Name="MaleGenderCheck" Content="Мужчина" GroupName="GenderChange" IsChecked="True"/>
-                <RadioButton Name="FemaleGenderCheck" Content="Женщина" GroupName="GenderChange"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Отчество(не обязательно)"/>
-                <TextBox Width="100" Name="PatronymicField"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Номер телефона"/>
-                <TextBox Width="100" Name="PhoneNumberField"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Эл. почта"/>
-                <TextBox Width="100" Name="EmailField"/>
+           
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Отчество(при наличии)" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="PatronymicField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
             
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Логин"/>
-                <TextBox Width="100" Name="LoginField"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Пол" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <RadioButton Name="MaleGenderCheck" Content="Мужчина" GroupName="GenderChange" IsChecked="True"
+                             FontSize="14" FontFamily="Arial" FontWeight="Medium" Background="HotPink"/>
+                <RadioButton Name="FemaleGenderCheck" Content="Женщина" GroupName="GenderChange"
+                             FontSize="14" FontFamily="Arial" FontWeight="Medium" Background="HotPink"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Номер телефона" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="PhoneNumberField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Пароль"/>
-                <TextBox Width="100" Name="PasswordField"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Эл. почта" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="EmailField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Повторите пароль"/>
-                <TextBox Width="100" Name="RepeatPasswordField"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Логин" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="LoginField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Пароль" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="PasswordField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="160" Text="Повторите пароль" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Width="160" Name="RepeatPasswordField" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button Content="Зарегистрироваться" Click="ButtonAddNewAccount"/>
-            <Button Content="Назад" Click="ButtonGoBack"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+            <Button Content="Зарегистрироваться" Click="ButtonAddNewAccount" Style="{StaticResource MaterialDesignRaisedButton}"
+                    materialDesign:ButtonAssist.CornerRadius="5" Background="Coral" Margin="0 0 10 0" Width="180"/>
+            <Button Content="Назад" Click="ButtonGoBack" Style="{StaticResource MaterialDesignRaisedButton}"
+                    materialDesign:ButtonAssist.CornerRadius="5" Background="Coral" Margin="0 0 10 0" Width="100"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.ClientPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -16,25 +17,33 @@
 
         <StackPanel Grid.Row="0" Margin="5" Orientation="Vertical">
             <StackPanel Margin="5" Orientation="Vertical">
-                <TextBlock Text="Список товаров"/>
-                <TextBlock Name="TextCurrentCountProds"/>
+                <TextBlock Text="Список товаров" Foreground="Black" FontFamily="Arial" FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock Name="TextCurrentCountProds" Foreground="Black" FontFamily="Arial" FontSize="18" FontWeight="DemiBold"/>
             </StackPanel>
             <StackPanel Margin="5" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text="Название товара: " />
-                    <TextBox x:Name="InputProductName" Width="150"/>
+                    <TextBlock Text="Название товара: " Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                    <TextBox x:Name="InputProductName" Width="150" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                             BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+                             Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
 
-                    <TextBlock Text="Категория: " Margin="20 0 0 0"/>
-                    <ComboBox Name="ChooseProductCategory" Width="150" SelectedIndex="0"/>
+                    <TextBlock Text="Категория: " Margin="20 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                    <ComboBox Name="ChooseProductCategory" Width="150" SelectedIndex="0" Foreground="Black" FontFamily="Arial" 
+                              FontSize="14" FontWeight="Medium" BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center"                      Padding="5 0 2 0"/>
 
-                    <CheckBox Margin="5" Content="Использовать поиск" Name="CheckSearchProducts" IsChecked="False"/>
+                    <CheckBox Margin="5" Content="Использовать поиск" Name="CheckSearchProducts" IsChecked="False"
+                              FontSize="14" FontFamily="Arial" FontWeight="Medium" Background="HotPink"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text="Мин. цена: " />
-                    <TextBox Name="SelectMinimalProductPrice" Width="150"/>
+                    <TextBlock Text="Мин. цена: " Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                    <TextBox Name="SelectMinimalProductPrice" Width="150" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                             BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+                             Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
 
-                    <TextBlock Text="Макс. цена: " Margin="20 0 0 0"/>
-                    <TextBox Name="SelectMaximalProductPrice" Width="150"/>
+                    <TextBlock Text="Макс. цена: " Margin="20 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                    <TextBox Name="SelectMaximalProductPrice" Width="150" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                             BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+                             Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -48,7 +57,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Width="300" Height="400">
+                    <Border Width="400" Height="380" BorderThickness="2" BorderBrush="HotPink">
                         <StackPanel Margin="5" Orientation="Vertical">
                             <Image Width="220" Height="150">
                                 <Image.Source>
@@ -59,22 +68,40 @@
                                     </Binding>
                                 </Image.Source>
                             </Image>
-                            <TextBlock Text="{Binding NumId}" Margin="5"/>
-                            <TextBlock Text="{Binding Name}" Margin="5"/>
-                            <TextBlock Text="{Binding CategoryName}" Margin="5"/>
-                            <TextBlock Text="{Binding Equipment}" Margin="5"/>
-                            <TextBlock Text="{Binding Weight}" Margin="5"/>
-                            <TextBlock Text="{Binding Price}" Margin="5"/>
-                            <Button Width="100" Height="50" Content="В корзину" Click="ButtonAddNewPositionInShoppingCart"/>
+                            <TextBlock Text="{Binding NumId, StringFormat={}Номер: {0}}" Margin="5" Foreground="Black"
+                                       FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding Name, StringFormat={}Название: {0}}" Margin="5" Foreground="Black"
+                                       FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding CategoryName, StringFormat={}Категория: {0}}" Margin="5" Foreground="Black"
+                                       FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding Equipment, StringFormat={}Комплектация: {0}}" Margin="5" Foreground="Black"
+                                       FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding Weight, StringFormat={}Вес: {0} Кг.}" Margin="5" Foreground="Black"
+                                       FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                            <TextBlock Text="{Binding Price, StringFormat={}Цена: {0} Руб.}" Margin="5" Foreground="Black"
+                                       FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                            <Button Width="140" Height="40" Content="В корзину" Click="ButtonAddNewPositionInShoppingCart"
+                                    Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral"
+                                    materialDesign:ButtonAssist.CornerRadius="5" Margin="2" 
+                                    Foreground="Black" FontFamily="Arial" FontSize="12" FontWeight="DemiBold"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Margin="5">
-            <Button Width="200" Height="50" Content="Перейти в корзину товаров" Click="ButtonGoToCheckShoppingCart" Margin="50 0"/>
-            <Button Width="150" Height="50" Content="Очистить корзину" Click="ButtonClearCurrentShoppingCart" Margin="50 0"/>
-            <Button Width="150" Height="50" Content="Вернуться назад" Click="ButtonGoBack" Margin="50 0"/>
+            <Button Width="250" Height="50" Content="Перейти в корзину товаров" Click="ButtonGoToCheckShoppingCart" 
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black" Margin="50 0"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
+            <Button Width="200" Height="50" Content="Очистить корзину" Click="ButtonClearCurrentShoppingCart" 
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black" Margin="50 0"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
+            <Button Width="200" Height="50" Content="Вернуться назад" Click="ButtonGoBack"
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black" Margin="50 0"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
         </StackPanel>
     </Grid>
 </Page>

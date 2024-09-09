@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|d:\\program files (x86)\\cpp projects\\milkparadiseshop\\milkparadiseshop\\view\\clientwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|solutionrelative:milkparadiseshop\\view\\clientwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|d:\\program files (x86)\\cpp projects\\milkparadiseshop\\milkparadiseshop\\view\\clientpages\\clientedithisprofilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|solutionrelative:milkparadiseshop\\view\\clientpages\\clientedithisprofilepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|d:\\program files (x86)\\cpp projects\\milkparadiseshop\\milkparadiseshop\\view\\clientpages\\clientacceptorderorcancelpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|solutionrelative:milkparadiseshop\\view\\clientpages\\clientacceptorderorcancelpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|d:\\program files (x86)\\cpp projects\\milkparadiseshop\\milkparadiseshop\\view\\loginpages\\registrationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|solutionrelative:milkparadiseshop\\view\\loginpages\\registrationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|d:\\program files (x86)\\cpp projects\\milkparadiseshop\\milkparadiseshop\\view\\loginpages\\authorizationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3EBD9F66-8768-48DC-B0E5-BA29FEB9FF33}|MilkParadiseShop\\MilkParadiseShop.csproj|solutionrelative:milkparadiseshop\\view\\loginpages\\authorizationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClientWindow.xaml",
+              "DocumentMoniker": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\ClientWindow.xaml",
+              "RelativeDocumentMoniker": "MilkParadiseShop\\View\\ClientWindow.xaml",
+              "ToolTip": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\ClientWindow.xaml",
+              "RelativeToolTip": "MilkParadiseShop\\View\\ClientWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-09T19:17:08.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClientAcceptOrderOrCancelPage.xaml",
+              "DocumentMoniker": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\ClientPages\\ClientAcceptOrderOrCancelPage.xaml",
+              "RelativeDocumentMoniker": "MilkParadiseShop\\View\\ClientPages\\ClientAcceptOrderOrCancelPage.xaml",
+              "ToolTip": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\ClientPages\\ClientAcceptOrderOrCancelPage.xaml",
+              "RelativeToolTip": "MilkParadiseShop\\View\\ClientPages\\ClientAcceptOrderOrCancelPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-09T18:52:50.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClientEditHisProfilePage.xaml",
+              "DocumentMoniker": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\ClientPages\\ClientEditHisProfilePage.xaml",
+              "RelativeDocumentMoniker": "MilkParadiseShop\\View\\ClientPages\\ClientEditHisProfilePage.xaml",
+              "ToolTip": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\ClientPages\\ClientEditHisProfilePage.xaml",
+              "RelativeToolTip": "MilkParadiseShop\\View\\ClientPages\\ClientEditHisProfilePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-09T18:41:20.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegistrationPage.xaml",
+              "DocumentMoniker": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\LoginPages\\RegistrationPage.xaml",
+              "RelativeDocumentMoniker": "MilkParadiseShop\\View\\LoginPages\\RegistrationPage.xaml",
+              "ToolTip": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\LoginPages\\RegistrationPage.xaml",
+              "RelativeToolTip": "MilkParadiseShop\\View\\LoginPages\\RegistrationPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-09T17:58:54.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthorizationPage.xaml",
+              "DocumentMoniker": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\LoginPages\\AuthorizationPage.xaml",
+              "RelativeDocumentMoniker": "MilkParadiseShop\\View\\LoginPages\\AuthorizationPage.xaml",
+              "ToolTip": "D:\\Program Files (x86)\\Cpp Projects\\MilkParadiseShop\\MilkParadiseShop\\View\\LoginPages\\AuthorizationPage.xaml",
+              "RelativeToolTip": "MilkParadiseShop\\View\\LoginPages\\AuthorizationPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-09T17:38:51.265Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 119,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

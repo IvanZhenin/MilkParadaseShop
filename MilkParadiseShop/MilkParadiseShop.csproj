@@ -11,18 +11,25 @@
   <ItemGroup>
     <None Remove="Resources\DefaultProduct.png" />
     <None Remove="Resources\DefaultWorkerImage.png" />
+    <None Remove="Resources\RegistrationImage.png" />
+    <None Remove="Resources\ShopImage.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="MaterialDesignColors" Version="3.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\DefaultProduct.png" />
     <Resource Include="Resources\DefaultWorkerImage.png" />
+    <Resource Include="Resources\RegistrationImage.png" />
+    <Resource Include="Resources\ShopImage.png" />
   </ItemGroup>
 
 </Project>

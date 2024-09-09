@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.ClientPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -14,39 +15,58 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Оформление заказа" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
+        <TextBlock Text="Оформление заказа" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 5 5 5"
+                   Foreground="Black" FontFamily="Arial" FontSize="18" FontWeight="DemiBold"/>
         <DataGrid Name="DataGridFinalShoppingCart" IsReadOnly="True" Grid.Row="1" Margin="5"
                   AutoGenerateColumns="False" SelectionMode="Single">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding ProdId}"/>
-                <DataGridTextColumn Header="Название" Binding="{Binding ProdName}"/>
-                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Цена за позицию" Binding="{Binding TotalPriceForProduct}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding ProdId}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding ProdName}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Цена за позицию" Binding="{Binding TotalPriceForProduct}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel Orientation="Horizontal" Margin="5" Grid.Row="2" VerticalAlignment="Center">
-            <TextBlock Text="Способ получения: "/>
-            <ComboBox Name="SelectMethodReceiveProds" Width="150" SelectedIndex="0"
-                      SelectionChanged="SelectMethodReceiveProdsSelectionChanged">
-               
-            </ComboBox>
+            <TextBlock Text="Способ получения: " Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <ComboBox Name="SelectMethodReceiveProds" Width="150" SelectedIndex="0" 
+                      SelectionChanged="SelectMethodReceiveProdsSelectionChanged" Foreground="Black" FontFamily="Arial" 
+                      FontSize="14" FontWeight="Medium" BorderBrush="HotPink" BorderThickness="2" 
+                      VerticalContentAlignment="Center" Padding="5 0 2 0"/>
 
             <StackPanel Orientation="Horizontal" Margin="5 0">
-                <ComboBox Name="SelectMarketPoint" Width="200" SelectedIndex="0"/>
-                <TextBox Name="InputAddress" Width="200"/>
+                <ComboBox Name="SelectMarketPoint" Width="200" SelectedIndex="0" 
+                          SelectionChanged="SelectMethodReceiveProdsSelectionChanged" Foreground="Black" FontFamily="Arial" 
+                          FontSize="14" FontWeight="Medium" BorderBrush="HotPink" BorderThickness="2" 
+                          VerticalContentAlignment="Center" Padding="5 0 2 0"/>
+                <TextBox Name="InputAddress" Width="200"  Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                             BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" Margin="5"
+                             Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="50 0 0 0">
-                <TextBlock Text="Итого к оплате: "/>
-                <TextBlock Name="TextClientDiscountPercent" Text="Скидка: "/>
+                <TextBlock Text="Итого к оплате: " Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBlock Name="TextClientDiscountPercent" Text="Скидка: " Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
             </StackPanel>
-            <TextBox Name="InputTotalOrderAmount" Width="200" Height="30" IsReadOnly="True"/>
+            <TextBox Name="InputTotalOrderAmount" Width="200" Height="30" IsReadOnly="True" 
+                     Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                     BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+                     Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Margin="5">
-            <Button Width="200" Height="50" Content="Подтвердить заказ" Click="ButtonAcceptOrder" Margin="50 0"/>
-            <Button Width="150" Height="50" Content="Вернуться назад" Click="ButtonGoBack" Margin="50 0"/>
+            <Button Width="200" Height="50" Content="Подтвердить заказ" Click="ButtonAcceptOrder" Margin="50 0"
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
+            <Button Width="200" Height="50" Content="Вернуться назад" Click="ButtonGoBack" Margin="50 0"
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
         </StackPanel>
     </Grid>
 </Page>

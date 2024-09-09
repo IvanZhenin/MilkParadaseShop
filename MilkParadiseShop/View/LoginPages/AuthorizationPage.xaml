@@ -3,32 +3,54 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.LoginPages"
       mc:Ignorable="d" 
       d:DesignHeight="564" d:DesignWidth="430"
       Title="AuthorizationDataPage">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Авторизация"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Логин"/>
-                <TextBox Width="100" Name="LoginField"/>
+            <Image Source="/Resources/ShopImage.png" Width="70" Height="70" 
+                   Stretch="Fill" VerticalAlignment="Top" Margin="0 50 0 5"/>
+            <TextBlock Text="Авторизация" FontFamily="Arial" FontSize="20" 
+                       FontWeight="SemiBold" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="5" ToolTip="Логин">
+                    <materialDesign:PackIcon Kind="User" Width="35" Height="35" Foreground="Coral"/>
+                    <TextBox Width="200" Name="LoginField" Foreground="Black" FontFamily="Arial" BorderBrush="HotPink" BorderThickness="2"
+                             VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Введите логин"
+                             Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5" ToolTip="Пароль">
+                    <materialDesign:PackIcon Kind="Password" Width="35" Height="35" Foreground="Coral"/>
+                    <PasswordBox Width="200" Name="PasswordField" Foreground="Black" FontFamily="Arial" BorderBrush="HotPink" BorderThickness="2"
+                                 VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="***********" 
+                                 Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+                </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="150" Text="Пароль"/>
-                <PasswordBox Width="100" Name="PasswordField"/>
-            </StackPanel>
+           
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <TextBlock Text="Я:"/>
-            <StackPanel Orientation="Horizontal">
-                <RadioButton Name="ClientButtonCheck" Content="Клиент" GroupName="UserChange" IsChecked="True"/>
-                <RadioButton Name="WorkerButtonCheck" Content="Сотрудник" GroupName="UserChange"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+            <TextBlock Text="Войти как:" FontSize="18" FontFamily="Arial" FontWeight="DemiBold"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <RadioButton Name="ClientButtonCheck" Content="Клиент" GroupName="UserChange" IsChecked="True"
+                             FontSize="16" FontFamily="Arial" FontWeight="Medium" Background="HotPink" Margin="0 0 10 0"/>
+                <RadioButton Name="WorkerButtonCheck" Content="Сотрудник" GroupName="UserChange"
+                             FontSize="16" FontFamily="Arial" FontWeight="Medium" Background="HotPink"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Войти" Click="ButtonEnterInAccount"/>
-                <Button Content="Регистрация" Click="ButtonGoCreateNewAccount"/>
+                <Button Content="Войти" Click="ButtonEnterInAccount" Style="{StaticResource MaterialDesignRaisedButton}"
+                        materialDesign:ButtonAssist.CornerRadius="5" Background="Coral" Margin="0 0 10 0" Width="100"/>
+                <Button Content="Регистрация" Click="ButtonGoCreateNewAccount" Style="{StaticResource MaterialDesignRaisedButton}"
+                        materialDesign:ButtonAssist.CornerRadius="5" Background="Coral" Width="130"/>
             </StackPanel>
         </StackPanel>
     </Grid>
