@@ -48,7 +48,7 @@ namespace MilkParadiseShop.View.AdminPages
 
         private void ButtonGoCheckShopPoints(object sender, RoutedEventArgs e)
         {
-
+            UIManager.WorkerAdminFrame.Navigate(new AdminCheckMarketPointsPage());
         }
 
         private void ButtonGoLogout(object sender, RoutedEventArgs e)

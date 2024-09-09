@@ -84,20 +84,21 @@ namespace MilkParadiseShop.View.AdminPages
         private void ButtonEditCategory(object sender, RoutedEventArgs e)
         {
             _timerForProdsAndCategories.Stop();
-
+            UIManager.WorkerAdminFrame.Navigate(new AdminAddOrEditProdCategoryPage((sender as Button).DataContext as Category));
         }
 
         private void ButtonDeleteCategory(object sender, RoutedEventArgs e)
         {
             _timerForProdsAndCategories.Stop();
-
+            if (AdminViewModel.DeleteCurrentProductCategory((sender as Button).DataContext as Category))
+                UpdateCategories();
             _timerForProdsAndCategories.Start();
         }
 
         private void ButtonAddNewCategory(object sender, RoutedEventArgs e)
         {
             _timerForProdsAndCategories.Stop();
-
+            UIManager.WorkerAdminFrame.Navigate(new AdminAddOrEditProdCategoryPage(null));
         }
     }
 }

@@ -8,32 +8,6 @@ namespace MilkParadiseShop.Helpers
 {
     public static class CheckTryConverter
     {
-        public static bool ConvertToDecimal(string value)
-        {
-            try
-            {
-                Convert.ToDecimal(value);
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
-        }
-
-        public static bool ConvertToDouble(string value)
-        {
-            try
-            {
-                Convert.ToDouble(value);
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
-        }
-
         public static string ConvertStringToDecimalFormat(string value)
         {
             string newValue = string.Empty;

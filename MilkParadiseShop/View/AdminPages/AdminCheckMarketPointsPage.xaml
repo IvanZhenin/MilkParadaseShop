@@ -1,0 +1,42 @@
+﻿<Page x:Class="MilkParadiseShop.View.AdminPages.AdminCheckMarketPointsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkParadiseShop.View.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="594" d:DesignWidth="1060"
+      Title="AdminCheckMarketPointsPage" IsVisibleChanged="PageIsVisibleChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" Name="DataGridAdminCheckMarketPoints" IsReadOnly="True"
+                  AutoGenerateColumns="False" SelectionMode="Single" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding NumId}"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Изменить" Click="ButtonEditMarketPoint"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Click="ButtonDeleteMarketPoint"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Добавить новый магазин" Width="165" Height="45" Margin="5" Click="ButtonAddNewMarketPoint"/>
+            <Button Content="Вернуться на главную" Width="165" Height="45" Margin="5" Click="ButtonGoBack"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>

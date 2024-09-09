@@ -13,10 +13,19 @@
     <Compile Update="View\AdminPages\AdminAddNewWorkerPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AdminPages\AdminAddOrEditMarketPointPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminPages\AdminAddOrEditProdCategoryPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AdminPages\AdminAddOrEditProductPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AdminPages\AdminCheckClientsListPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AdminPages\AdminCheckMarketPointsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\AdminPages\AdminCheckOrderListPage.xaml.cs">
@@ -81,10 +90,19 @@
     <Page Update="View\AdminPages\AdminAddNewWorkerPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\AdminPages\AdminAddOrEditMarketPointPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminPages\AdminAddOrEditProdCategoryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AdminPages\AdminAddOrEditProductPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AdminPages\AdminCheckClientsListPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdminPages\AdminCheckMarketPointsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AdminPages\AdminCheckOrderListPage.xaml">

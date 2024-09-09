@@ -15,6 +15,8 @@ using System.ComponentModel;
 using System.Windows.Media;
 using Microsoft.VisualBasic.Logging;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Diagnostics;
+using System.Windows.Media.Media3D;
 
 namespace MilkParadiseShop.ViewModel
 {
@@ -415,12 +417,12 @@ namespace MilkParadiseShop.ViewModel
                 using (BaseContext baseContext = new BaseContext())
                 {
                     StringBuilder errors = new StringBuilder();
-                    if (!CheckTryConverter.ConvertToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(weight)))
+                    if (!Decimal.TryParse(CheckTryConverter.ConvertStringToDecimalFormat(weight), out decimal weightValue))
                     {
                         errors.AppendLine("Неправильно указан вес, неверный формат!");
                     }
 
-                    if (!CheckTryConverter.ConvertToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(price)))
+                    if (!Decimal.TryParse(CheckTryConverter.ConvertStringToDecimalFormat(price), out decimal priceValue))
                     {
                         errors.AppendLine("Неправильно указана цена, неверный формат!");
                     }
@@ -439,8 +441,8 @@ namespace MilkParadiseShop.ViewModel
                         currentProduct.Name = name;
                         currentProduct.CategoryId = GetCategoryNumId(categoryName);
                         currentProduct.Equipment = equipment;
-                        currentProduct.Weight = Convert.ToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(weight));
-                        currentProduct.Price = Convert.ToDecimal(CheckTryConverter.ConvertStringToDecimalFormat(price));
+                        currentProduct.Weight = weightValue;
+                        currentProduct.Price = priceValue;
                         currentProduct.Image = ImageByteConverter.ImageConvertToByte(image);
 
                         if (targetProduct.NumId <= 0)
@@ -502,6 +504,187 @@ namespace MilkParadiseShop.ViewModel
                 }
             }
             return false;
+        }
+
+        public static bool AddOrEditProductCategory(Category targetCategory, string name)
+        {
+            if (ValueValidator.CheckNullOrEmptyParams(name))
+            {
+                MessageBox.Show("Поле название является обязательным к заполнению!", "Ошибка");
+                return false;
+            }
+
+            string message = targetCategory.NumId <= 0 ? "добавить новую категорию товаров" : "внести изменения в данную позицию";
+            string messageEnd = targetCategory.NumId <= 0 ? "Категория товаров была успешно добавлена!" : "Изменения успешно сохранены!";
+            if (MessageBox.Show($"Вы точно хотите {message}?",
+                  "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    StringBuilder errors = new StringBuilder();
+                    if (baseContext.Categories.Where(p => p.Name == name && p.NumId != targetCategory.NumId).Count() > 0)
+                    {
+                        errors.AppendLine("Данное название категории уже занято, укажите другое!");
+                    }
+
+                    if (errors.Length > 0)
+                    {
+                        MessageBox.Show(errors.ToString(), "Ошибка");
+                        return false;
+                    }
+
+                    try
+                    {
+                        Category currentCategory = new Category();
+                        if (targetCategory.NumId > 0)
+                            currentCategory = baseContext.Categories.Where(p => p.NumId == targetCategory.NumId).First();
+                        currentCategory.Name = name;
+                       
+
+                        if (targetCategory.NumId <= 0)
+                        {
+                            currentCategory.NumId = UniqueNewId.GetNewNumId(GetAdminProdCategoriesList()
+                                .Select(p => p.NumId).ToList());
+                            baseContext.Categories.Add(currentCategory);
+                        }
+                        baseContext.SaveChanges();
+                        MessageBox.Show($"{messageEnd}", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static bool DeleteCurrentProductCategory(Category targetCategory)
+        {
+            if (targetCategory == null)
+                return false;
+
+            if (MessageBox.Show($"Вы точно хотите удалить категорию товаров под номером {targetCategory.NumId}?",
+                  "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    var prodsList = baseContext.Products.Where(p => p.CategoryId == targetCategory.NumId).ToList();
+                    if (prodsList.Count > 0)
+                    {
+                        MessageBox.Show("Вы не можете удалить данную категорию, так как по ней созданы товары", "Ошибка");
+                        return false;
+                    }
+
+                    try
+                    {
+                        baseContext.Categories.Remove(targetCategory);
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Категория была успешно удалена!", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public static List<MarketPoint> GetAdminMarketPointsList()
+        {
+            using (BaseContext baseContext = new BaseContext())
+            {
+                return baseContext.MarketPoints.ToList();
+            }
+        }
+        public static bool AddOrEditMarketPoint(MarketPoint targetPoint, string address)
+        {
+            if (ValueValidator.CheckNullOrEmptyParams(address))
+            {
+                MessageBox.Show("Поле адрес является обязательным к заполнению!", "Ошибка");
+                return false;
+            }
+
+            string message = targetPoint.NumId <= 0 ? "добавить новый магазин" : "внести изменения в данную позицию";
+            string messageEnd = targetPoint.NumId <= 0 ? "Магазин был успешно добавлен!" : "Изменения успешно сохранены!";
+            if (MessageBox.Show($"Вы точно хотите {message}?",
+                  "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    StringBuilder errors = new StringBuilder();
+                    if (baseContext.MarketPoints.Where(p => p.Address == address && p.NumId != targetPoint.NumId).Count() > 0)
+                    {
+                        errors.AppendLine("Данный адрес уже занят, укажите другой!");
+                    }
+
+                    if (errors.Length > 0)
+                    {
+                        MessageBox.Show(errors.ToString(), "Ошибка");
+                        return false;
+                    }
+
+                    try
+                    {
+                        MarketPoint currentPoint = new MarketPoint();
+                        if (targetPoint.NumId > 0)
+                            currentPoint = baseContext.MarketPoints.Where(p => p.NumId == targetPoint.NumId).First();
+                        currentPoint.Address = address;
+
+
+                        if (targetPoint.NumId <= 0)
+                        {
+                            currentPoint.NumId = UniqueNewId.GetNewNumId(GetAdminMarketPointsList()
+                                .Select(p => p.NumId).ToList());
+                            baseContext.MarketPoints.Add(currentPoint);
+                        }
+                        baseContext.SaveChanges();
+                        MessageBox.Show($"{messageEnd}", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static bool DeleteCurrentMarketPoint(MarketPoint targetPoint) 
+        {
+            if (targetPoint == null)
+                return false;
+
+            if (MessageBox.Show($"Вы точно хотите магазин под номером {targetPoint.NumId}?",
+                  "Внимание", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                using (BaseContext baseContext = new BaseContext())
+                {
+                    if (GetAdminMarketPointsList().Count <= 1)
+                    {
+                        MessageBox.Show("Вы не можете удалить данный магазин, так как он единственный!", "Ошибка");
+                        return false;
+                    }
+
+                    try
+                    {
+                        baseContext.MarketPoints.Remove(targetPoint);
+                        baseContext.SaveChanges();
+                        MessageBox.Show("Магазин был успешно удален!", "Внимание");
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Критическая ошибка");
+                    }
+                }
+            }
+            return false; 
         }
     }
 }
