@@ -38,10 +38,5 @@ namespace MilkParadiseShop.View.LoginPages
         {
             UIManager.LoginDataPanelFrame.Navigate(new RegistrationPage());
         }
-
-        private void ButtonEnterAsGuest(object sender, RoutedEventArgs e)
-        {
-            LoginViewModel.Authorization();
-        }
     }
 }

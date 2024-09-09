@@ -30,7 +30,6 @@
                 <Button Content="Войти" Click="ButtonEnterInAccount"/>
                 <Button Content="Регистрация" Click="ButtonGoCreateNewAccount"/>
             </StackPanel>
-            <Button Content="Войти как гость" Click="ButtonEnterAsGuest"/>
         </StackPanel>
     </Grid>
 </Page>

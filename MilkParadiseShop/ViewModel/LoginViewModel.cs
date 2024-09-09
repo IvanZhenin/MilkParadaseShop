@@ -15,12 +15,6 @@ namespace MilkParadiseShop.ViewModel
 {
     public class LoginViewModel
     {
-        public static void Authorization()
-        {
-            WorkerLogin workerLogin = new WorkerLogin();
-            ClientLogin clientLogin = new ClientLogin();
-            ClientOpenWindow();
-        }
         public static void Authorization(string login, string password, UserOrientation orientation)
         {
             if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password))
