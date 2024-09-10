@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -13,36 +14,60 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <GroupBox Header="Номер">
-                <TextBox Name="InputNumId" Width="200" Text="{Binding NumId}" IsReadOnly="True"/>
-            </GroupBox>
-            
-            <GroupBox Header="Название">
-                <TextBox Name="InputName" Width="200" Text="{Binding Name}"/>
-            </GroupBox>
-            
-            <GroupBox Header="Категория">
-                <ComboBox Name="ChooseProductCategory" Width="200"/>
-            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Номер" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputNumId" Text="{Binding NumId}" IsReadOnly="True" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
 
-            <GroupBox Header="Комлектация">
-                <TextBox Name="InputEquipment" Width="200" Text="{Binding Equipment}"/>
-            </GroupBox>
-            
-            <GroupBox Header="Вес">
-                <TextBox Name="InputWeight" Width="200" Text="{Binding Weight}"/>
-            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Название" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputName" Text="{Binding Name}" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
 
-            <GroupBox Header="Цена">
-                <TextBox Name="InputPrice" Width="200" Text="{Binding Price}"/>
-            </GroupBox>
-        
-            <GroupBox Header="Фотография">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Категория" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <ComboBox Name="ChooseProductCategory" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                          BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+                          Padding="5 0 2 0" Width="220"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Комплектация" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputEquipment" Text="{Binding Equipment}" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Вес" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputWeight" Text="{Binding Weight}" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Цена" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputPrice" Text="{Binding Price}" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
+
+            <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Width="190" Text="Фотография" Foreground="Black" 
+                           FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <StackPanel Orientation="Vertical" Margin="5">
-                        <Button Height="30" Width="135" Margin="5" 
+                        <Button Height="30" Width="135" Margin="5" HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                                Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                                FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"
                                 Content="Выбрать фото" Click="ButtonLoadNewImage"/>
-                        <Button Height="30" Width="135" Margin="5" 
+                        <Button Height="30" Width="135" Margin="5" HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                                Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                                FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" 
                                 Content="Сбросить" Click="ButtonClearCurrentImage"/>
                     </StackPanel>
                     <Border Width="70" Height="70" BorderThickness="2" 
@@ -54,14 +79,19 @@
                         </Image>
                     </Border>
                 </StackPanel>
-            </GroupBox>
+            </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
          Margin="5" Orientation="Horizontal">
-            <Button Content="Сохранить" Margin="5" Width="150" 
-                    Height="30" Click="ButtonSaveProductChanges"/>
-            <Button Content="Отменить" Margin="5" Width="150" 
+            <Button Content="Сохранить" Margin="5" Width="150" Height="30"
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" Click="ButtonSaveProductChanges"/>
+            <Button Content="Отменить" Margin="5" Width="150" HorizontalAlignment="Left"
+                    Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"
                     Height="30" Click="ButtonGoBack"/>
         </StackPanel>
     </Grid>

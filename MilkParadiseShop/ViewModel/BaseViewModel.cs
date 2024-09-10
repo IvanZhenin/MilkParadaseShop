@@ -35,7 +35,7 @@ namespace MilkParadiseShop.ViewModel
                 }
             }
 
-            return price * (1 - (decimal)ClientLogin.Discount / 100);
+            return Math.Round(price * (1 - (decimal)ClientLogin.Discount / 100), 2);
         }
 
         public static List<Product> UpdateProductsListWithSearch(string nameProd,
@@ -108,7 +108,7 @@ namespace MilkParadiseShop.ViewModel
         }
         public static void WorkerTakesNewOrder(Order currentOrder)
         {
-            if (currentOrder == null) 
+            if (currentOrder == null)
                 return;
 
             if (currentOrder.WorkerId == WorkerLogin.NumId)

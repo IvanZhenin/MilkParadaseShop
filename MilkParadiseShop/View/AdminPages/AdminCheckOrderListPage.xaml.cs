@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using MilkParadiseShop.View;
 
 namespace MilkParadiseShop.View.AdminPages
 {
@@ -30,6 +31,7 @@ namespace MilkParadiseShop.View.AdminPages
         {
             InitializeComponent();
             TimerActivate();
+            ChooseOrderStatus.ItemsSource = NamesCollector.GetSearchList(NamesCollector.WorkingOrderStatusList, true);
         }
         private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -59,6 +61,7 @@ namespace MilkParadiseShop.View.AdminPages
             {
                 DataGridAdminOrders.ItemsSource = AdminViewModel.GetAdminOrdersList();
             }
+            TextOrdersCount.Text = $"Количество заказов: {DataGridAdminOrders.Items.Count}";
         }
         private void ButtonCheckOrderCart(object sender, RoutedEventArgs e)
         {

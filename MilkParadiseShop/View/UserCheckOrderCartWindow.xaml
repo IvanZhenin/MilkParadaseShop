@@ -3,17 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MilkParadiseShop.View"
         mc:Ignorable="d"
-        Title="Список товаров заказа" MinHeight="300" MinWidth="550" MaxHeight="300" 
-        MaxWidth="550" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        MinHeight="400" MinWidth="650" MaxHeight="400" 
+        MaxWidth="650" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid Name="DataGridProductsInOrder" IsReadOnly="True" Grid.Row="1" Margin="10"
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="HotPink" Offset="1"/>
+                <GradientStop Color="Coral" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="70 0 70 0" Margin="5" Background="AntiqueWhite" Grid.RowSpan="2"/>
+        <TextBlock Name="TextCurrentProdInOrderList" Margin="5" Foreground="Black" FontFamily="Arial" 
+                   FontSize="14" FontWeight="Medium" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <DataGrid Name="DataGridProductsInOrder" IsReadOnly="True" Grid.Row="1" Margin="30 15 30 30"
                   AutoGenerateColumns="False" SelectionMode="Single">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding ProdId}"/>
-                <DataGridTextColumn Header="Название" Binding="{Binding ProdName}"/>
-                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding ProdId}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding ProdName}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilkParadiseShop.View"
         mc:Ignorable="d"
-        Title="Окно продавца" MinHeight="650" MinWidth="1100">
+        MinHeight="650" MinWidth="1100">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="HotPink" Offset="0.4"/>
+                <GradientStop Color="Coral" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border CornerRadius="20" Margin="10" Background="AntiqueWhite"/>
         <Frame Name="SellerCourierDataPanelFrame" Style="{StaticResource FrameOrder}"/>
     </Grid>
 </Window>

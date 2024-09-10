@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -28,7 +29,7 @@
                         </ListView.ItemsPanel>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Border Width="300" Height="400">
+                                <Border Width="400" Height="400" BorderThickness="2" BorderBrush="HotPink">
                                     <StackPanel Margin="5" Orientation="Vertical">
                                         <Image Width="220" Height="150">
                                             <Image.Source>
@@ -39,25 +40,39 @@
                                                 </Binding>
                                             </Image.Source>
                                         </Image>
-                                        <TextBlock Text="{Binding NumId}" Margin="5"/>
-                                        <TextBlock Text="{Binding Name}" Margin="5"/>
-                                        <TextBlock Text="{Binding CategoryName}" Margin="5"/>
-                                        <TextBlock Text="{Binding Equipment}" Margin="5"/>
-                                        <TextBlock Text="{Binding Weight}" Margin="5"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <TextBlock Text="{Binding NumId, StringFormat={}Номер: {0}}" Margin="5" Foreground="Black"
+                                                   FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                                        <TextBlock Text="{Binding Name, StringFormat={}Название: {0}}" Margin="5" Foreground="Black"
+                                                   FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                                        <TextBlock Text="{Binding CategoryName, StringFormat={}Категория: {0}}" Margin="5" Foreground="Black"
+                                                   FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                                        <TextBlock Text="{Binding Equipment, StringFormat={}Комплектация: {0}}" Margin="5" Foreground="Black"
+                                                   FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                                        <TextBlock Text="{Binding Weight, StringFormat={}Вес: {0:F2} Кг.}" Margin="5" Foreground="Black"
+                                                   FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                                        <TextBlock Text="{Binding Price, StringFormat={}Цена: {0:F2} Руб.}" Margin="5" Foreground="Black"
+                                                   FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                                         <StackPanel Orientation="Horizontal">
                                             <Button Width="100" Height="50" Margin="5"
-                                                    Content="Изменить" Click="ButtonEditCurrentProduct"/>
+                                                    Content="Изменить" Click="ButtonEditCurrentProduct"  
+                                                    Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral"
+                                                    materialDesign:ButtonAssist.CornerRadius="5" 
+                                                    Foreground="Black" FontFamily="Arial" FontSize="12" FontWeight="DemiBold"/>
                                             <Button Width="100" Height="50" Margin="5"
-                                                    Content="Удалить" Click="ButtonDeleteCurrentProduct"/>
+                                                    Content="Удалить" Click="ButtonDeleteCurrentProduct"
+                                                    Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral"
+                                                    materialDesign:ButtonAssist.CornerRadius="5" 
+                                                    Foreground="Black" FontFamily="Arial" FontSize="12" FontWeight="DemiBold"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Button Grid.Row="1" Content="Добавить новый товар" Width="165" 
-                            Height="45" Margin="5" Click="ButtonAddNewProduct"/>
+                    <Button Grid.Row="1" Content="Добавить новый товар" Width="250" 
+                            Height="45" Margin="5" Click="ButtonAddNewProduct" Background="Coral" Foreground="Black" 
+                            Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                            FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Категории" Width="100">
@@ -69,32 +84,43 @@
                     <DataGrid Grid.Row="0" Name="DataGridAdminCheckCategories" IsReadOnly="True"
                               AutoGenerateColumns="False" SelectionMode="Single" Margin="5">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Номер" Binding="{Binding NumId}"/>
-                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Номер" Binding="{Binding NumId}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Изменить" Click="ButtonEditCategory"/>
+                                        <Button Content="Изменить" Click="ButtonEditCategory" Width="170"
+                                                Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                                FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="Удалить" Click="ButtonDeleteCategory"/>
+                                        <Button Content="Удалить" Click="ButtonDeleteCategory" Width="170"
+                                                Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                                FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Grid.Row="1" Content="Добавить новую категорию" Width="165" 
-                            Height="45" Margin="5" Click="ButtonAddNewCategory"/>
+                    <Button Grid.Row="1" Content="Добавить новую категорию" Width="250" 
+                            Height="45" Margin="5" Click="ButtonAddNewCategory" Background="Coral" Foreground="Black" 
+                            Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                            FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
                 </Grid>
             </TabItem>
         </TabControl>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
-            <Button Content="На главную" Width="120" Height="30" Click="ButtonGoBack" Margin="5"/>
+            <Button Content="На главную" Width="150" Height="30" Click="ButtonGoBack" Margin="5"
+                    Background="Coral" Foreground="Black" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"
+                    Style="{StaticResource MaterialDesignRaisedButton}"/>
         </StackPanel>
     </Grid>
 </Page>

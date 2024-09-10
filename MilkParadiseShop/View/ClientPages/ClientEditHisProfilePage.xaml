@@ -59,7 +59,7 @@
 
             <Separator Background="Black" Height="20" BorderBrush="Black" BorderThickness="2"/>
             
-            <StackPanel Orientation="Vertical" Margin="5">
+            <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" Margin="5">
                     <TextBlock Text="Текущий пароль" Width="200" Foreground="Black" FontFamily="Arial" 
                            FontSize="14" FontWeight="Medium"/>

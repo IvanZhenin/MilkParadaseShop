@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.SellerPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -14,76 +15,100 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="70"/>
             <RowDefinition/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Column="1" Margin="5" VerticalAlignment="Center">
-            <TextBlock Name="TextDataOfSellerAccount" Text="Данные учетной записи:"/>
+            <TextBlock Name="TextDataOfSellerAccount" Text="Данные учетной записи:" Foreground="Black"
+                       FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="5">
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Name="TextOrdersCount" Width="170"/>
 
-                <TextBlock Text="Номер:" Margin="50 0 0 0"/>
-                <TextBox Name="InputOrderId" Width="40"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Orientation="Horizontal"
+            HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Name="TextOrdersCount" Width="170" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <TextBlock Text="Номер:" Margin="20 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <TextBox Name="InputOrderId" Width="40" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+             BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+             Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
 
-                <TextBlock Text="Дата создания:" Margin="20 0 0 0"/>
-                <DatePicker Name="SelectOrderDateCreate" Width="120"/>
+            <TextBlock Text="Дата создания:" Margin="20 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <DatePicker Name="SelectOrderDateCreate" Width="120" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                 BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" Padding="5 0 2 0"/>
 
-                <TextBlock Text="Статус:" Margin="20 0 0 0"/>
-                <ComboBox Name="ChooseOrderStatus" Width="120" SelectedIndex="0"/>
-
-                <CheckBox Content="Использовать поиск" Margin="20 0 0 0" IsChecked="False" Name="CheckSearchOrders"/>
-            </StackPanel>
-            <DataGrid x:Name="DataGridSellerCourierOrders" IsReadOnly="True"
-                      AutoGenerateColumns="False" SelectionMode="Single">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Номер заказа" Binding="{Binding NumId}"/>
-                    <DataGridTextColumn Header="Сотрудник" Binding="{Binding WorkerFullName}"/>
-                    <DataGridTextColumn Header="Дата создания" Binding="{Binding DateCreate}"/>
-                    <DataGridTextColumn Header="Дата завершения" Binding="{Binding DateEnd}"/>
-                    <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"/>
-                    <DataGridTextColumn Header="Тип заказа" Binding="{Binding OrderType}"/>
-                    <DataGridTextColumn Header="Статус" Binding="{Binding Status}"/>
-                    <DataGridTextColumn Header="Количество товаров" Binding="{Binding TotalProdQuantity}"/>
-                    <DataGridTextColumn Header="Итоговая стоимость" Binding="{Binding TotalPrice}"/>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Состав заказа" Click="ButtonCheckOrderCart"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Принять заказ" Click="ButtonTakeOrder"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Завершить" Click="ButtonAcceptOrder"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Отменить" Click="ButtonCancelOrder"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+            <TextBlock Text="Статус:" Margin="20 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <ComboBox Name="ChooseOrderStatus" Width="120" SelectedIndex="0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                 BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" Padding="5 0 2 0"/>
+            <CheckBox Content="Использовать поиск" Margin="20 0 0 0" IsChecked="False" Name="CheckSearchOrders"
+              FontSize="14" FontFamily="Arial" FontWeight="Medium" Background="HotPink"/>
         </StackPanel>
+        <DataGrid x:Name="DataGridSellerCourierOrders" IsReadOnly="True" Grid.Row="2" Grid.Column="1"
+                  Grid.RowSpan="2"  AutoGenerateColumns="False" SelectionMode="Single" Margin="0 0 0 20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер заказа" Binding="{Binding NumId}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding WorkerFullName}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Дата создания" Binding="{Binding DateCreate, StringFormat={}dd-MM-yyyy}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Дата завершения" Binding="{Binding DateEnd, StringFormat={}dd-MM-yyyy}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Тип заказа" Binding="{Binding OrderType}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Количество товаров" Binding="{Binding TotalProdQuantity}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Итоговая стоимость" Binding="{Binding TotalPrice}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Состав заказа" Click="ButtonCheckOrderCart" Width="170"
+                                     Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Принять заказ" Click="ButtonTakeOrder" Width="170"
+                                     Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Завершить" Click="ButtonAcceptOrder" Width="170"
+                                     Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Отменить" Click="ButtonCancelOrder" Width="170"
+                                     Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <StackPanel Orientation="Vertical" Margin="5" VerticalAlignment="Center"
                     Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
-            <Button Width="50" Height="50" Margin="5" Click="ButtonGoLogout">
+            <Button Width="60" Height="60" Margin="5" Click="ButtonGoLogout"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}" FontFamily="Arial"
+                    Background="Coral" Foreground="Black"  FontSize="10" FontWeight="DemiBold">
                 <Button.Content>
                     <TextBlock Text="Выйти"/>
                 </Button.Content>

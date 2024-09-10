@@ -130,3 +130,4 @@ D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\obj\Debug\
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\bin\Debug\net8.0-windows\MaterialDesignColors.dll
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
 D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+D:\Program Files (x86)\Cpp Projects\MilkParadiseShop\MilkParadiseShop\bin\Debug\net8.0-windows\System.Drawing.Common.dll

@@ -57,9 +57,9 @@
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                 <DataGridTextColumn Header="Сотрудник" Binding="{Binding WorkerFullName}" Foreground="Black"
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
-                <DataGridTextColumn Header="Дата создания" Binding="{Binding DateCreate}" Foreground="Black"
+                <DataGridTextColumn Header="Дата создания" Binding="{Binding DateCreate, StringFormat={}dd-MM-yyyy}" Foreground="Black"
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
-                <DataGridTextColumn Header="Дата завершения" Binding="{Binding DateEnd}" Foreground="Black"
+                <DataGridTextColumn Header="Дата завершения" Binding="{Binding DateEnd, StringFormat={}dd-MM-yyyy}" Foreground="Black"
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Foreground="Black"
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>

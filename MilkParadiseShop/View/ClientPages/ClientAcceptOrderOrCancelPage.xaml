@@ -26,7 +26,7 @@
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                 <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Foreground="Black"
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
-                <DataGridTextColumn Header="Цена за позицию" Binding="{Binding TotalPriceForProduct}" Foreground="Black"
+                <DataGridTextColumn Header="Цена за позицию" Binding="{Binding TotalPriceForProduct, StringFormat={}{0:F2}}" Foreground="Black"
                                     FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -48,7 +48,7 @@
                              Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
             </StackPanel>
 
-            <StackPanel Orientation="Vertical" Margin="50 0 0 0">
+            <StackPanel Orientation="Vertical" Margin="30 0 0 0">
                 <TextBlock Text="Итого к оплате: " Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
                 <TextBlock Name="TextClientDiscountPercent" Text="Скидка: " Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
             </StackPanel>

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -15,22 +16,28 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Номер:" Margin="50 0 0 0"/>
-            <TextBox Name="InputWorkerId" Width="40"/>
+            <TextBlock Text="Номер:" Margin="50 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <TextBox Name="InputWorkerId" Width="40" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                     BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+                     Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
 
-            <TextBlock Text="Должность:" Margin="20 0 0 0"/>
-            <ComboBox Name="SelectWorkerRole" Width="150" SelectedIndex="0"/>
+            <TextBlock Text="Должность:" Margin="20 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <ComboBox Name="SelectWorkerRole" Width="150" SelectedIndex="0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                      BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" Padding="5 0 2 0"/>
 
-            <TextBlock Text="Пол:" Margin="20 0 0 0"/>
-            <ComboBox Name="ChooseWorkerGender" Width="120" SelectedIndex="0"/>
+            <TextBlock Text="Пол:" Margin="20 0 0 0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <ComboBox Name="ChooseWorkerGender" Width="120" SelectedIndex="0" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                     BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" Padding="5 0 2 0"/>
 
-            <CheckBox Content="Использовать поиск" Margin="20 0 0 0" IsChecked="False" Name="CheckSearchWorkers"/>
+            <CheckBox Content="Использовать поиск" Margin="20 0 0 0" IsChecked="False" Name="CheckSearchWorkers"
+                      FontSize="14" FontFamily="Arial" FontWeight="Medium" Background="HotPink"/>
         </StackPanel>
 
         <DataGrid Grid.Row="1" Name="DataGridAdminCheckWorkers" IsReadOnly="True"
                   AutoGenerateColumns="False" SelectionMode="Single" Margin="5">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Номер" Binding="{Binding NumId}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding NumId}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                 <DataGridTemplateColumn Header="Фотография">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -46,26 +53,39 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding SurName}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}"/>
-                <DataGridTextColumn Header="Должность" Binding="{Binding JobName}"/>
-                <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
-                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"/>
-                <DataGridTextColumn Header="Почта" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding SurName}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Gender}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding JobName}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Почта" Binding="{Binding Email}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}" Foreground="Black"
+                                    FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Изменить" Click="ButtonEditWorker"/>
+                            <Button Content="Изменить" Click="ButtonEditWorker" Width="170"
+                                    Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Удалить" Click="ButtonDeleteWorker"/>
+                            <Button Content="Удалить" Click="ButtonDeleteWorker" Width="170"
+                                    Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral" Foreground="Black" 
+                                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" FontSize="12" FontWeight="DemiBold"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -73,8 +93,14 @@
         </DataGrid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
-            <Button Content="Добавить нового сотрудника" Width="190" Height="30" Click="ButtonAddNewWorker" Margin="5"/>
-            <Button Content="На главную" Width="120" Height="30" Click="ButtonGoBack" Margin="5"/>
+            <Button Content="Добавить нового сотрудника" Width="250" Height="30" Click="ButtonAddNewWorker" Margin="5"
+                    Background="Coral" Foreground="Black" 
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
+            <Button Content="На главную" Width="150" Height="30" Click="ButtonGoBack" Margin="5"
+                    Background="Coral" Foreground="Black" 
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
         </StackPanel>
     </Grid>
 </Page>

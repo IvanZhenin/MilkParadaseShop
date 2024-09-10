@@ -24,7 +24,7 @@ namespace MilkParadiseShop.View
         public UserCheckOrderCartWindow(Order currentOrder)
         {
             InitializeComponent();
-            Title += $" [{currentOrder.NumId}]";
+            TextCurrentProdInOrderList.Text = $"Состав заказа номер [{currentOrder.NumId}]";
             DataGridProductsInOrder.ItemsSource = BaseViewModel.GetProductListInOrder(currentOrder);
         }
     }

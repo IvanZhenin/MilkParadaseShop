@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -13,65 +14,103 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <GroupBox Header="Имя">
-                <TextBox Name="InputName" Width="200"/>
-            </GroupBox>
-            <GroupBox Header="Фамилия">
-                <TextBox Name="InputSurName" Width="200"/>
-            </GroupBox>
-            <GroupBox Header="Отчество">
-                <TextBox Name="InputPatronymic" Width="200"/>
-            </GroupBox>
-            <StackPanel Orientation="Horizontal">
-                <GroupBox Header="Пол">
-                    <ComboBox Name="ChooseWorkerGender" Width="200" SelectedIndex="0"/>
-                </GroupBox>
-
-                <GroupBox Header="Должность">
-                    <ComboBox Name="ChooseWorkerRole" Width="200" SelectedIndex="0"/>
-                </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Имя" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputName" Text="{Binding Name}" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Фамилия" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputSurName" Text="{Binding SurName}" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                         BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Отчество" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputPatronymic" Width="220" Text="{Binding Patronymic}" Foreground="Black" FontFamily="Arial" FontSize="14" 
+                         FontWeight="Medium" BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Пол" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <ComboBox Name="ChooseWorkerGender" Width="220" SelectedIndex="0" Foreground="Black" FontFamily="Arial" 
+                          FontSize="14" FontWeight="Medium" BorderBrush="HotPink" BorderThickness="2" 
+                          VerticalContentAlignment="Center" Padding="5 0 2 0"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <GroupBox Header="Телефон">
-                    <TextBox Name="InputPhoneNumber" Width="200"/>
-                </GroupBox>
-
-                <GroupBox Header="Эл. Почта">
-                    <TextBox Name="InputEmail" Width="200"/>
-                </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Должность" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <ComboBox Name="ChooseWorkerRole" Width="220" SelectedIndex="0" Foreground="Black" FontFamily="Arial" 
+                          FontSize="14" FontWeight="Medium" BorderBrush="HotPink" BorderThickness="2" 
+                          VerticalContentAlignment="Center" Padding="5 0 2 0"/>
             </StackPanel>
 
-            <GroupBox Header="Фотография">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Номер телефона" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputPhoneNumber" Width="220" Text="{Binding PhoneNumber}" Foreground="Black" FontFamily="Arial" FontSize="14" 
+                         FontWeight="Medium" BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Эл. почта" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputEmail" Width="220" Text="{Binding Email}" Foreground="Black" FontFamily="Arial" FontSize="14" 
+                         FontWeight="Medium" BorderBrush="HotPink" BorderThickness="0 0 0 2" VerticalContentAlignment="Center" 
+                         Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+            </StackPanel>
+
+            <StackPanel Margin="5" HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Width="190" Text="Фотография" Foreground="Black" 
+                           FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <StackPanel Orientation="Vertical" Margin="5">
-                        <Button Height="30" Width="135" Margin="5" 
-                          Content="Выбрать фото" Click="ButtonLoadNewImage"/>
-                        <Button Height="30" Width="135" Margin="5" 
-                          Content="Сбросить" Click="ButtonClearCurrentImage"/>
+                        <Button Height="30" Width="135" Margin="5" HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                                Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                                FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"
+                                Content="Выбрать фото" Click="ButtonLoadNewImage"/>
+                        <Button Height="30" Width="135" Margin="5" HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                                Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                                FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"
+                                Content="Сбросить" Click="ButtonClearCurrentImage"/>
                     </StackPanel>
                     <Border Width="70" Height="70" BorderThickness="2" 
                             BorderBrush="Black" Margin="5">
                         <Image Name="InputImage"/>
                     </Border>
                 </StackPanel>
-            </GroupBox>
+            </StackPanel>
 
-            <GroupBox Header="Логин">
-                <TextBox Name="InputLogin" Width="200"/>
-            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Логин" Width="200" Foreground="Black" FontFamily="Arial" 
+                           FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputLogin" Width="220" Foreground="Black" FontFamily="Arial" 
+                         FontSize="14" FontWeight="Medium" BorderBrush="HotPink" 
+                         BorderThickness="0 0 0 2" VerticalContentAlignment="Center" Padding="5 0 2 0" 
+                         SelectionBrush="Black" CaretBrush="Black"/>
+            </StackPanel>
 
-            <GroupBox Header="Пароль">
-                <TextBox Name="InputPassword" Width="200"/>
-            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Пароль" Width="200" Foreground="Black" FontFamily="Arial" 
+                           FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputPassword" Width="220" Text="{Binding Password}"
+                         Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium" BorderBrush="HotPink" 
+                         BorderThickness="0 0 0 2" VerticalContentAlignment="Center" Padding="5 0 2 0" 
+                         SelectionBrush="Black" CaretBrush="Black"/>
+            </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
-          Margin="5" Orientation="Horizontal">
-            <Button Content="Сохранить" Margin="5" Width="150" 
-              Height="30" Click="ButtonSaveNewWorkerAccount"/>
-            <Button Content="Отменить" Margin="5" Width="150" 
-              Height="30" Click="ButtonGoBack"/>
+                    Margin="5" Orientation="Horizontal">
+            <Button Content="Сохранить" Margin="5" Width="150" Height="30" Click="ButtonSaveNewWorkerAccount"
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
+            <Button Content="Отменить" Margin="5" Width="150" Height="30" Click="ButtonGoBack" 
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5"/>
         </StackPanel>
     </Grid>
 </Page>

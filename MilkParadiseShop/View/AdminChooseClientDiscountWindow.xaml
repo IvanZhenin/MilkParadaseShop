@@ -3,20 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MilkParadiseShop.View"
         mc:Ignorable="d"
-        Title="Изменение скидки" MinHeight="150" MinWidth="250" MaxHeight="100" 
-        MaxWidth="200" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        MinHeight="200" MinWidth="350" MaxHeight="200" 
+        MaxWidth="350" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="HotPink" Offset="1"/>
+                <GradientStop Color="Coral" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border CornerRadius="90 0 90 0" Margin="5" Background="AntiqueWhite"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
                     Margin="5" VerticalAlignment="Center">
-            <TextBlock Name="TextCurrentProduct" Margin="5"/>
-            <TextBox Name="InputClientDiscount" Width="90"/>
-            <StackPanel Orientation="Horizontal">
-                <Button Width="40" Height="20" Margin="5" Content="V"
-                        Click="ButtonAcceptEditClientDiscount"/>
-                <Button Width="40" Height="20" Margin="5" Content="Х"
-                        Click="ButtonCloseWindow"/>
+            <TextBlock Name="TextCurrentProduct" Margin="5" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <TextBlock Text="Укажите размер скидки:" Margin="5" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+            <TextBox Name="InputClientDiscount" Width="210" Height="30" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"
+                     BorderBrush="HotPink" BorderThickness="2" VerticalContentAlignment="Center" 
+                     Padding="5 0 2 0" SelectionBrush="Black" CaretBrush="Black"/>
+            <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
+                <Button Width="45" Height="45" Margin="5" Content="V" Click="ButtonAcceptEditClientDiscount"
+                        Style="{StaticResource MaterialDesignRaisedButton}" FontFamily="Arial"
+                        Background="Coral" Foreground="Black" FontSize="10" FontWeight="DemiBold"/>
+                <Button Width="45" Height="45" Margin="5" Content="Х" Click="ButtonCloseWindow"
+                        Style="{StaticResource MaterialDesignRaisedButton}" FontFamily="Arial"
+                        Background="Coral" Foreground="Black" FontSize="10" FontWeight="DemiBold"/>
             </StackPanel>
         </StackPanel>
     </Grid>

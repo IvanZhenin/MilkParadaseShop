@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilkParadiseShop.View.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="594" d:DesignWidth="1060"
@@ -13,21 +14,33 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <GroupBox Header="Номер">
-                <TextBox Name="InputNumId" Width="200" Text="{Binding NumId}" IsReadOnly="True"/>
-            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Номер" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputNumId" Text="{Binding NumId}" IsReadOnly="True" Foreground="Black" 
+                         FontFamily="Arial" FontSize="14" FontWeight="Medium" BorderBrush="HotPink" 
+                         BorderThickness="0 0 0 2" VerticalContentAlignment="Center" Padding="5 0 2 0" 
+                         SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
 
-            <GroupBox Header="Адрес">
-                <TextBox Name="InputAddress" Width="200" Text="{Binding Address}"/>
-            </GroupBox>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="200" Text="Адрес" Foreground="Black" FontFamily="Arial" FontSize="14" FontWeight="Medium"/>
+                <TextBox Name="InputAddress" Text="{Binding Address}" Foreground="Black" 
+                         FontFamily="Arial" FontSize="14" FontWeight="Medium" BorderBrush="HotPink" 
+                         BorderThickness="0 0 0 2" VerticalContentAlignment="Center" Padding="5 0 2 0" 
+                         SelectionBrush="Black" CaretBrush="Black" Width="220"/>
+            </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
                 Margin="5" Orientation="Horizontal">
-            <Button Content="Сохранить" Margin="5" Width="150" 
-                    Height="30" Click="ButtonSaveMarketPointChanges"/>
-            <Button Content="Отменить" Margin="5" Width="150" 
-                    Height="30" Click="ButtonGoBack"/>
+            <Button Content="Сохранить" Margin="5" Width="150" Height="30"
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" Click="ButtonSaveMarketPointChanges"/>
+            <Button Content="Отменить" Margin="5" Width="150" Height="30"
+                    HorizontalAlignment="Left" Background="Coral" Foreground="Black"
+                    Style="{StaticResource MaterialDesignRaisedButton}" FontSize="14" FontWeight="DemiBold"
+                    FontFamily="Arial" materialDesign:ButtonAssist.CornerRadius="5" Click="ButtonGoBack"/>
         </StackPanel>
     </Grid>
 </Page>

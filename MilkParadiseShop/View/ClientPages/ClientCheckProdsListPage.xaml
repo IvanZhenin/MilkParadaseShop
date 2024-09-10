@@ -76,9 +76,9 @@
                                        FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                             <TextBlock Text="{Binding Equipment, StringFormat={}Комплектация: {0}}" Margin="5" Foreground="Black"
                                        FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
-                            <TextBlock Text="{Binding Weight, StringFormat={}Вес: {0} Кг.}" Margin="5" Foreground="Black"
+                            <TextBlock Text="{Binding Weight, StringFormat={}Вес: {0:F2} Кг.}" Margin="5" Foreground="Black"
                                        FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
-                            <TextBlock Text="{Binding Price, StringFormat={}Цена: {0} Руб.}" Margin="5" Foreground="Black"
+                            <TextBlock Text="{Binding Price, StringFormat={}Цена: {0:F2} Руб.}" Margin="5" Foreground="Black"
                                        FontFamily="Arial" FontSize="16" FontWeight="DemiBold"/>
                             <Button Width="140" Height="40" Content="В корзину" Click="ButtonAddNewPositionInShoppingCart"
                                     Style="{StaticResource MaterialDesignRaisedButton}" Background="Coral"
